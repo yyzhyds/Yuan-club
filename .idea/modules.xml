@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Yuan_club_application.iml" filepath="$PROJECT_DIR$/Yuan_club_application.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Yuan_club_application_controller.iml" filepath="$PROJECT_DIR$/Yuan_club_application_controller.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Yuan_club_application_job.iml" filepath="$PROJECT_DIR$/Yuan_club_application_job.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Yuan_club_application_mq.iml" filepath="$PROJECT_DIR$/Yuan_club_application_mq.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Yuan_club_common.iml" filepath="$PROJECT_DIR$/Yuan_club_common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Yuan_club_domain.iml" filepath="$PROJECT_DIR$/Yuan_club_domain.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Yuan_club_infra.iml" filepath="$PROJECT_DIR$/Yuan_club_infra.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Yuan_club_starter.iml" filepath="$PROJECT_DIR$/Yuan_club_starter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Yuan_club_subject.iml" filepath="$PROJECT_DIR$/Yuan_club_subject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Yuan_club_subject_api.iml" filepath="$PROJECT_DIR$/Yuan_club_subject_api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/yuan_club.iml" filepath="$PROJECT_DIR$/.idea/yuan_club.iml" />
+    </modules>
+  </component>
+</project>

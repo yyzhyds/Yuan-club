@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="Yuan_club_application_mq" />
+        <module name="Yuan_club_application_job" />
+        <module name="Yuan_club_common" />
+        <module name="Yuan_club_starter" />
+        <module name="Yuan_club_infra" />
+        <module name="Yuan_club_subject_api" />
+        <module name="Yuan_club_domain" />
+        <module name="Yuan_club_application_controller" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Yuan_club_application" target="1.8" />
+      <module name="Yuan_club_application_controller" target="1.8" />
+      <module name="Yuan_club_application_job" target="1.8" />
+      <module name="Yuan_club_application_mq" target="1.8" />
+      <module name="Yuan_club_common" target="1.8" />
+      <module name="Yuan_club_domain" target="1.8" />
+      <module name="Yuan_club_infra" target="1.8" />
+      <module name="Yuan_club_starter" target="1.8" />
+      <module name="Yuan_club_subject" target="1.8" />
+      <module name="Yuan_club_subject_api" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
