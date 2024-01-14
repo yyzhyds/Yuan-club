@@ -1,0 +1,22 @@
+package com.zhy.subject;
+
+import org.mybatis.spring.annotation.MapperScan;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
+
+/**
+ * @author Lenovo
+ * @version 1.0
+ * @description 刷题微服务启动类
+ * @date 14/1/2024 下午4:30
+ */
+@SpringBootApplication
+@ComponentScan("com")
+@ComponentScan(basePackages = {"com.zhy.subject.infra.basic.dao"})
+@MapperScan("com.zhy.**.dao")
+public class SubjectApplication {
+    public static void main(String[] args) {
+        SpringApplication.run(SubjectApplication.class,args);
+    }
+}
