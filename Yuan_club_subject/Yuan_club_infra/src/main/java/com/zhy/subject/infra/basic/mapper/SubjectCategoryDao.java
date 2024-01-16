@@ -1,9 +1,8 @@
-package com.zhy.subject.infra.basic.dao;
+package com.zhy.subject.infra.basic.mapper;
 
 import com.zhy.subject.infra.basic.entity.SubjectCategory;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-import org.springframework.stereotype.Component;
 
 import java.util.List;
 
@@ -66,4 +65,5 @@ public interface SubjectCategoryDao {
      */
     int deleteById(Long id);
 
+    List<SubjectCategory> queryCategory(SubjectCategory subjectCategory);
 }

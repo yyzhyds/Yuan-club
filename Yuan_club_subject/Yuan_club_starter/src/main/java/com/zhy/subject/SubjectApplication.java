@@ -12,9 +12,8 @@ import org.springframework.context.annotation.ComponentScan;
  * @date 14/1/2024 下午4:30
  */
 @SpringBootApplication
-@ComponentScan("com")
-@ComponentScan(basePackages = {"com.zhy.subject.infra.basic.dao"})
-@MapperScan("com.zhy.**.dao")
+@ComponentScan("com.zhy")
+@MapperScan("com.zhy.**.mapper")
 public class SubjectApplication {
     public static void main(String[] args) {
         SpringApplication.run(SubjectApplication.class,args);
