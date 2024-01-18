@@ -54,4 +54,5 @@ public interface SubjectLabelService {
 
     List<SubjectLabel> queryLabel(SubjectLabel subjectLabel);
 
+    List<SubjectLabel> batchQueryById(List<Long> labelIdList);
 }

@@ -80,4 +80,11 @@ public class SubjectLabelServiceImpl implements SubjectLabelService {
     public List<SubjectLabel> queryLabel(SubjectLabel subjectLabel) {
         return this.subjectLabelDao.queryLabel(subjectLabel);
     }
+
+    @Override
+    public List<SubjectLabel> batchQueryById(List<Long> labelIdList) {
+        return this.subjectLabelDao.batchQueryById(labelIdList);
+    }
+
+
 }

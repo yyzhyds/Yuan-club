@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.zhy.subject.infra.basic.mapper.SubjectLabelDao">
+<mapper namespace="com.zhy.subject.infra.basic.mapper.SubjectJudgeDao">
 
-    <resultMap type="com.zhy.subject.infra.basic.entity.SubjectLabel" id="SubjectLabelMap">
+    <resultMap type="com.zhy.subject.infra.basic.entity.SubjectJudge" id="SubjectJudgeMap">
         <result property="id" column="id" jdbcType="INTEGER"/>
-        <result property="labelName" column="label_name" jdbcType="VARCHAR"/>
-        <result property="sortNum" column="sort_num" jdbcType="INTEGER"/>
-        <result property="categoryId" column="category_id" jdbcType="INTEGER"/>
+        <result property="subjectId" column="subject_id" jdbcType="INTEGER"/>
+        <result property="isCorrect" column="is_correct" jdbcType="OTHER"/>
         <result property="createdBy" column="created_by" jdbcType="VARCHAR"/>
         <result property="createdTime" column="created_time" jdbcType="TIMESTAMP"/>
         <result property="updateBy" column="update_by" jdbcType="VARCHAR"/>
@@ -15,38 +14,61 @@
     </resultMap>
 
     <!--查询单个-->
-    <select id="queryById" resultMap="SubjectLabelMap">
+    <select id="queryById" resultMap="SubjectJudgeMap">
         select
-          id, label_name, sort_num, category_id, created_by, created_time, update_by, update_time, is_deleted
-        from yuan_club.subject_label
+          id, subject_id, is_correct, created_by, created_time, update_by, update_time, is_deleted
+        from yuan_club.subject_judge
         where id = #{id}
     </select>
 
     <!--查询指定行数据-->
-    <select id="queryAllByLimit" resultMap="SubjectLabelMap">
+    <select id="queryAllByLimit" resultMap="SubjectJudgeMap">
         select
-          id, label_name, sort_num, category_id, created_by, created_time, update_by, update_time, is_deleted
-        from yuan_club.subject_label
-        limit #{offset}, #{limit}
+        id, subject_id, is_correct, created_by, created_time, update_by, update_time, is_deleted
+        from syuan_club.subject_judge
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="subjectId != null">
+                and subject_id = #{subjectId}
+            </if>
+            <if test="isCorrect != null">
+                and is_correct = #{isCorrect}
+            </if>
+            <if test="createdBy != null and createdBy != ''">
+                and created_by = #{createdBy}
+            </if>
+            <if test="createdTime != null">
+                and created_time = #{createdTime}
+            </if>
+            <if test="updateBy != null and updateBy != ''">
+                and update_by = #{updateBy}
+            </if>
+            <if test="updateTime != null">
+                and update_time = #{updateTime}
+            </if>
+            <if test="isDeleted != null">
+                and is_deleted = #{isDeleted}
+            </if>
+        </where>
+
     </select>
 
     <!--通过实体作为筛选条件查询-->
-    <select id="queryAll" resultMap="SubjectLabelMap">
+    <select id="queryAll" resultMap="SubjectJudgeMap">
         select
-          id, label_name, sort_num, category_id, created_by, created_time, update_by, update_time, is_deleted
-        from yuan_club.subject_label
+          id, subject_id, is_correct, created_by, created_time, update_by, update_time, is_deleted
+        from yuan_club.subject_judge
         <where>
             <if test="id != null">
                 and id = #{id}
             </if>
-            <if test="labelName != null and labelName != ''">
-                and label_name = #{labelName}
+            <if test="subjectId != null">
+                and subject_id = #{subjectId}
             </if>
-            <if test="sortNum != null">
-                and sort_num = #{sortNum}
-            </if>
-            <if test="categoryId != null">
-                and category_id = #{categoryId}
+            <if test="isCorrect != null">
+                and is_correct = #{isCorrect}
             </if>
             <if test="createdBy != null and createdBy != ''">
                 and created_by = #{createdBy}
@@ -64,71 +86,32 @@
                 and is_deleted = #{isDeleted}
             </if>
         </where>
-    </select>
-
-    <!-- 查询分类下标签 -->
-    <select id="queryLabel" resultMap="SubjectLabelMap">
-        select * from yuan_club.subject_label
-        <where>
-            <if test="id != null">
-                and id = #{id}
-            </if>
-            <if test="labelName != null and labelName != ''">
-                and label_name = #{labelName}
-            </if>
-            <if test="sortNum != null">
-                and sort_num = #{sortNum}
-            </if>
-            <if test="categoryId != null">
-                and category_id = #{categoryId}
-            </if>
-            <if test="createdBy != null and createdBy != ''">
-                and created_by = #{createdBy}
-            </if>
-            <if test="createdTime != null">
-                and created_time = #{createdTime}
-            </if>
-            <if test="updateBy != null and updateBy != ''">
-                and update_by = #{updateBy}
-            </if>
-            <if test="updateTime != null">
-                and update_time = #{updateTime}
-            </if>
-            <if test="isDeleted != null">
-                and is_deleted = #{isDeleted}
-            </if>
-        </where>
-
-    </select>
-
-    <select id="batchQueryById" resultMap="SubjectLabelMap">
-        select
-        id, label_name, sort_num,category_id, created_by, created_time, update_by, is_deleted, update_time
-        from yuan_club.subject_label
-        where id in
-        <foreach open="(" close=")" collection="list" item="id" separator=",">
-            #{id}
-        </foreach>
     </select>
 
     <!--新增所有列-->
     <insert id="insert" keyProperty="id" useGeneratedKeys="true">
-        insert into yuan_club.subject_label (label_name, sort_num, category_id, created_by, created_time, update_by, update_time, is_deleted)
-        values (#{labelName}, #{sortNum}, #{categoryId}, #{createdBy}, #{createdTime}, #{updateBy}, #{updateTime}, #{isDeleted})
+        insert into yuan_club.subject_judge(subject_id, is_correct, created_by, created_time, update_by, update_time, is_deleted)
+        values (#{subjectId}, #{isCorrect}, #{createdBy}, #{createdTime}, #{updateBy}, #{updateTime}, #{isDeleted})
     </insert>
 
+
+    <insert id="bathInsert" keyProperty="id" useGeneratedKeys="true">
+        insert into yuan_club.subject_judge(subject_id, is_correct, created_by, created_time, update_by, update_time, is_deleted)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.subjectId}, #{entity.isCorrect}, #{entity.createdBy}, #{entity.createdTime}, #{entity.updateBy}, #{entity.updateTime}, #{entity.isDeleted})
+        </foreach>
+
+    </insert>
     <!--通过主键修改数据-->
     <update id="update">
-        update yuan_club.subject_label
+        update yuan_club.subject_judge
         <set>
-            <if test="labelName != null and labelName != ''">
-                label_name = #{labelName},
+            <if test="subjectId != null">
+                subject_id = #{subjectId},
             </if>
-            <if test="sortNum != null">
-                sort_num = #{sortNum},
-            </if>
-            <if test="categoryId != null">
-                category_id = #{categoryId},
+            <if test="isCorrect != null">
+                is_correct = #{isCorrect},
             </if>
             <if test="createdBy != null and createdBy != ''">
                 created_by = #{createdBy},
@@ -151,9 +134,7 @@
 
     <!--通过主键删除-->
     <delete id="deleteById">
-        delete from yuan_club.subject_label where id = #{id}
+        delete from yuan_club.subject_judge where id = #{id}
     </delete>
-
-
 
 </mapper>

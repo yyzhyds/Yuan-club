@@ -101,9 +101,20 @@
 
     </select>
 
+    <select id="batchQueryById" resultMap="SubjectLabelMap">
+        select
+        id, label_name, sort_num,category_id, created_by, created_time, update_by, is_deleted, update_time
+        from yuan_club.subject_label
+        where id in
+        <foreach open="(" close=")" collection="list" item="id" separator=",">
+            #{id}
+        </foreach>
+
+    </select>
+
     <!--新增所有列-->
     <insert id="insert" keyProperty="id" useGeneratedKeys="true">
-        insert into yuan_club.subject_label(label_name, sort_num, category_id, created_by, created_time, update_by, update_time, is_deleted)
+        insert into yuan_club.subject_label (label_name, sort_num, category_id, created_by, created_time, update_by, update_time, is_deleted)
         values (#{labelName}, #{sortNum}, #{categoryId}, #{createdBy}, #{createdTime}, #{updateBy}, #{updateTime}, #{isDeleted})
     </insert>
 

@@ -64,4 +64,5 @@ public interface SubjectLabelDao {
 
     List<SubjectLabel> queryLabel(SubjectLabel subjectLabel);
 
+    List<SubjectLabel> batchQueryById(@Param("list") List<Long> labelIdList);
 }
