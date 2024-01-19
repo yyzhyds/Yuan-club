@@ -13,7 +13,15 @@
     <artifactId>Yuan_club_application_controller</artifactId>
 
 
-<!--    <properties>-->
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.compilerVersion>1.8</maven.compiler.compilerVersion>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    </properties>
+
+    <!--    <properties>-->
 <!--        <java.version>1.8</java.version>-->
 <!--        <mapstruct.version>1.4.2.Final</mapstruct.version>-->
 <!--    </properties>-->

@@ -50,7 +50,6 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-aop:5.3.3" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-context:5.3.3" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-expression:5.3.3" level="project" />
-    <orderEntry type="module" module-name="Yuan_club_application" />
     <orderEntry type="module" module-name="Yuan_club_application_controller" />
     <orderEntry type="module" module-name="Yuan_club_domain" />
     <orderEntry type="module" module-name="Yuan_club_infra" />

@@ -109,7 +109,6 @@
         <foreach open="(" close=")" collection="list" item="id" separator=",">
             #{id}
         </foreach>
-
     </select>
 
     <!--新增所有列-->
