@@ -2,16 +2,17 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Yuan_club_application.iml" filepath="$PROJECT_DIR$/Yuan_club_application.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Yuan_club_application_controller.iml" filepath="$PROJECT_DIR$/Yuan_club_application_controller.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Yuan_club_application_job.iml" filepath="$PROJECT_DIR$/Yuan_club_application_job.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Yuan_club_application_mq.iml" filepath="$PROJECT_DIR$/Yuan_club_application_mq.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Yuan_club_common.iml" filepath="$PROJECT_DIR$/Yuan_club_common.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Yuan_club_domain.iml" filepath="$PROJECT_DIR$/Yuan_club_domain.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Yuan_club_infra.iml" filepath="$PROJECT_DIR$/Yuan_club_infra.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Yuan_club_starter.iml" filepath="$PROJECT_DIR$/Yuan_club_starter.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Yuan_club_subject.iml" filepath="$PROJECT_DIR$/Yuan_club_subject.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Yuan_club_subject_api.iml" filepath="$PROJECT_DIR$/Yuan_club_subject_api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Yuan-club-oss.iml" filepath="$PROJECT_DIR$/Yuan-club-oss.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Yuan_club_subject/Yuan_club_application/Yuan_club_application.iml" filepath="$PROJECT_DIR$/Yuan_club_subject/Yuan_club_application/Yuan_club_application.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Yuan_club_subject/Yuan_club_application/Yuan_club_application_controller/Yuan_club_application_controller.iml" filepath="$PROJECT_DIR$/Yuan_club_subject/Yuan_club_application/Yuan_club_application_controller/Yuan_club_application_controller.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Yuan_club_subject/Yuan_club_application/Yuan_club_application_job/Yuan_club_application_job.iml" filepath="$PROJECT_DIR$/Yuan_club_subject/Yuan_club_application/Yuan_club_application_job/Yuan_club_application_job.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Yuan_club_subject/Yuan_club_application/Yuan_club_application_mq/Yuan_club_application_mq.iml" filepath="$PROJECT_DIR$/Yuan_club_subject/Yuan_club_application/Yuan_club_application_mq/Yuan_club_application_mq.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Yuan_club_subject/Yuan_club_common/Yuan_club_common.iml" filepath="$PROJECT_DIR$/Yuan_club_subject/Yuan_club_common/Yuan_club_common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Yuan_club_subject/Yuan_club_domain/Yuan_club_domain.iml" filepath="$PROJECT_DIR$/Yuan_club_subject/Yuan_club_domain/Yuan_club_domain.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Yuan_club_subject/Yuan_club_infra/Yuan_club_infra.iml" filepath="$PROJECT_DIR$/Yuan_club_subject/Yuan_club_infra/Yuan_club_infra.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Yuan_club_subject/Yuan_club_starter/Yuan_club_starter.iml" filepath="$PROJECT_DIR$/Yuan_club_subject/Yuan_club_starter/Yuan_club_starter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Yuan_club_subject/Yuan_club_subject.iml" filepath="$PROJECT_DIR$/Yuan_club_subject/Yuan_club_subject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Yuan_club_subject/Yuan_club_subject_api/Yuan_club_subject_api.iml" filepath="$PROJECT_DIR$/Yuan_club_subject/Yuan_club_subject_api/Yuan_club_subject_api.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/yuan_club.iml" filepath="$PROJECT_DIR$/.idea/yuan_club.iml" />
     </modules>
   </component>
