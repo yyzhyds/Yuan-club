@@ -1,9 +1,8 @@
-package com.zhy.subject.common.enetity;
+package com.zhy.subject.common.entity;
 
 import lombok.Data;
 
 import java.io.Serializable;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 

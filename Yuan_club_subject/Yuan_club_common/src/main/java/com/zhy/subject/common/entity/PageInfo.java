@@ -1,4 +1,4 @@
-package com.zhy.subject.common.enetity;
+package com.zhy.subject.common.entity;
 
 /**
  * @author Lenovo
