@@ -5,6 +5,21 @@ minio:
   accessKey: minioadmin
   secretKey: minioadmin
 
-storage:
-  service:
-    type: minio
+#storage:
+#  service:
+#    type: minio
+#spring:
+#  cloud:
+#    nacos:
+#      config:
+#        access-key: nacos
+#        secret-key: nacos
+#        data-id: yuan-club-oss
+#        server-addr: http://localhost:8848/
+#        auto-refresh: true
+#        remote-first: true
+#        group: DEFAULT_GROUP
+#        bootstrap:
+#          enable: true
+
+
