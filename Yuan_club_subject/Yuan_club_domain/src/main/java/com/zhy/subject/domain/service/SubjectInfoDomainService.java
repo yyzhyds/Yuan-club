@@ -1,10 +1,7 @@
 package com.zhy.subject.domain.service;
 
-import com.zhy.subject.common.enetity.PageResult;
+import com.zhy.subject.common.entity.PageResult;
 import com.zhy.subject.domain.entity.SubjectInfoBO;
-import com.zhy.subject.domain.entity.SubjectLabelBO;
-
-import java.util.List;
 
 /**
  * @author Lenovo

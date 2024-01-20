@@ -1,6 +1,6 @@
 package com.zhy.subject.application.dto;
 
-import com.zhy.subject.common.enetity.PageInfo;
+import com.zhy.subject.common.entity.PageInfo;
 import lombok.Data;
 
 import java.io.Serializable;

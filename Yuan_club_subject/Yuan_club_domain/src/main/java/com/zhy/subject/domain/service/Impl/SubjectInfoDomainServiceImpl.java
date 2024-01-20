@@ -1,17 +1,14 @@
 package com.zhy.subject.domain.service.Impl;
 
 import com.alibaba.fastjson.JSON;
-import com.zhy.subject.common.enetity.PageResult;
+import com.zhy.subject.common.entity.PageResult;
 import com.zhy.subject.common.enums.IsDeleteFlagEnum;
 import com.zhy.subject.domain.convert.SubjectInfoConverter;
-import com.zhy.subject.domain.convert.SubjectLabelConverter;
 import com.zhy.subject.domain.entity.SubjectInfoBO;
-import com.zhy.subject.domain.entity.SubjectLabelBO;
 import com.zhy.subject.domain.entity.SubjectOptionBO;
 import com.zhy.subject.domain.handler.subject.SubjectTypeHandler;
 import com.zhy.subject.domain.handler.subject.SubjectTypeHandlerFactory;
 import com.zhy.subject.domain.service.SubjectInfoDomainService;
-import com.zhy.subject.domain.service.SubjectLabelDomainService;
 import com.zhy.subject.infra.basic.entity.SubjectInfo;
 import com.zhy.subject.infra.basic.entity.SubjectLabel;
 import com.zhy.subject.infra.basic.entity.SubjectMapping;
@@ -23,7 +20,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;

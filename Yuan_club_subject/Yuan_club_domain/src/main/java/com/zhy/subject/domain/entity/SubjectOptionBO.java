@@ -1,10 +1,8 @@
 package com.zhy.subject.domain.entity;
 
-import com.zhy.subject.common.enetity.PageInfo;
 import lombok.Data;
 
 import java.io.Serializable;
-import java.util.Date;
 import java.util.List;
 
 /**
