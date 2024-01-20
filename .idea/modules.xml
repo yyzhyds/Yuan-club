@@ -2,7 +2,18 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Yuan-club-auth.iml" filepath="$PROJECT_DIR$/Yuan-club-auth.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Yuan-club-auth-api.iml" filepath="$PROJECT_DIR$/Yuan-club-auth-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Yuan-club-auth-application.iml" filepath="$PROJECT_DIR$/Yuan-club-auth-application.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Yuan-club-auth-application-controller.iml" filepath="$PROJECT_DIR$/Yuan-club-auth-application-controller.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Yuan-club-auth-application-job.iml" filepath="$PROJECT_DIR$/Yuan-club-auth-application-job.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Yuan-club-auth-application-mq.iml" filepath="$PROJECT_DIR$/Yuan-club-auth-application-mq.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Yuan-club-auth-common.iml" filepath="$PROJECT_DIR$/Yuan-club-auth-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Yuan-club-auth-domain.iml" filepath="$PROJECT_DIR$/Yuan-club-auth-domain.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Yuan-club-auth-infra.iml" filepath="$PROJECT_DIR$/Yuan-club-auth-infra.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Yuan-club-auth-starter.iml" filepath="$PROJECT_DIR$/Yuan-club-auth-starter.iml" />
       <module fileurl="file://$PROJECT_DIR$/Yuan-club-oss.iml" filepath="$PROJECT_DIR$/Yuan-club-oss.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Yuan-clud-gateway.iml" filepath="$PROJECT_DIR$/Yuan-clud-gateway.iml" />
       <module fileurl="file://$PROJECT_DIR$/Yuan_club_subject/Yuan_club_application/Yuan_club_application.iml" filepath="$PROJECT_DIR$/Yuan_club_subject/Yuan_club_application/Yuan_club_application.iml" />
       <module fileurl="file://$PROJECT_DIR$/Yuan_club_subject/Yuan_club_application/Yuan_club_application_controller/Yuan_club_application_controller.iml" filepath="$PROJECT_DIR$/Yuan_club_subject/Yuan_club_application/Yuan_club_application_controller/Yuan_club_application_controller.iml" />
       <module fileurl="file://$PROJECT_DIR$/Yuan_club_subject/Yuan_club_application/Yuan_club_application_job/Yuan_club_application_job.iml" filepath="$PROJECT_DIR$/Yuan_club_subject/Yuan_club_application/Yuan_club_application_job/Yuan_club_application_job.iml" />

@@ -5,6 +5,8 @@
       <list>
         <option value="$PROJECT_DIR$/Yuan_club_subject/pom.xml" />
         <option value="$PROJECT_DIR$/Yuan-club-oss/pom.xml" />
+        <option value="$PROJECT_DIR$/Yuan-club-auth/pom.xml" />
+        <option value="$PROJECT_DIR$/Yuan-clud-gateway/pom.xml" />
       </list>
     </option>
   </component>
