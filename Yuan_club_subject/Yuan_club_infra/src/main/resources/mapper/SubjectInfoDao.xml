@@ -115,18 +115,18 @@
 
     </select>
     <select id="queryPage" resultMap="SubjectInfoMap">
-        select id,
-               subject_name,
-               subject_difficult,
-               settle_name,
-               subject_type,
-               subject_score,
-               subject_parse,
-               created_by,
-               created_time,
-               update_by,
-               update_time,
-               is_deleted
+        select a.id,
+        a.subject_name,
+        a.subject_difficult,
+        a.settle_name,
+        a.subject_type,
+        a.subject_score,
+        a.subject_parse,
+        a.created_by,
+        a.created_time,
+        a.update_by,
+        a.update_time,
+        a.is_deleted
         from yuan_club.subject_info a,
              yuan_club.subject_mapping b
         where a.id = b.subject_id

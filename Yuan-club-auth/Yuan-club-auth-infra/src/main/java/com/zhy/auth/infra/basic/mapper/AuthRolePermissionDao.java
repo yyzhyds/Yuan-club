@@ -1,5 +1,6 @@
 package com.zhy.auth.infra.basic.mapper;
 
+import com.zhy.auth.infra.basic.entity.AuthRole;
 import com.zhy.auth.infra.basic.entity.AuthRolePermission;
 import org.apache.ibatis.annotations.Param;
 import java.util.List;

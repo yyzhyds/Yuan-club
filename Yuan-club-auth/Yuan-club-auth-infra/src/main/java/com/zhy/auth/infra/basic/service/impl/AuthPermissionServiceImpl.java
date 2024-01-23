@@ -19,6 +19,11 @@ public class AuthPermissionServiceImpl implements AuthPermissionService {
     @Resource
     private AuthPermissionDao authPermissionDao;
 
+    @Override
+    public List<AuthPermission> queryByRoleList(List<Long> roleIdList) {
+        return this.authPermissionDao.queryByRoleList(roleIdList);
+    }
+
     /**
      * 通过ID查询单条数据
      *

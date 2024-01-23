@@ -87,6 +87,15 @@
         </where>
     </select>
 
+    <select id="queryByRoleList" resultMap="AuthRoleMap">
+        select *
+        from yuan_club.auth_role
+        where id in
+        <foreach open="(" close=")" collection="list" item="id" separator=",">
+            #{id}
+        </foreach>
+    </select>
+
     <!--新增所有列-->
     <insert id="insert" keyProperty="id" useGeneratedKeys="true">
         <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER">

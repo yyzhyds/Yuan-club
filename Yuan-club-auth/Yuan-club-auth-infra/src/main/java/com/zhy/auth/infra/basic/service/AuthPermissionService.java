@@ -11,6 +11,8 @@ import java.util.List;
  */
 public interface AuthPermissionService {
 
+    List<AuthPermission> queryByRoleList(List<Long> roleIdList);
+
     /**
      * 通过ID查询单条数据
      *

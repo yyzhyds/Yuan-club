@@ -49,9 +49,8 @@ public class SubjectLabelServiceImpl implements SubjectLabelService {
      * @return 实例对象
      */
     @Override
-    public SubjectLabel insert(SubjectLabel subjectLabel) {
-        this.subjectLabelDao.insert(subjectLabel);
-        return subjectLabel;
+    public Integer insert(SubjectLabel subjectLabel) {
+        return this.subjectLabelDao.insert(subjectLabel);
     }
 
     /**

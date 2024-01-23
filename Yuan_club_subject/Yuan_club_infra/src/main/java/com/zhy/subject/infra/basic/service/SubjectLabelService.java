@@ -34,7 +34,7 @@ public interface SubjectLabelService {
      * @param subjectLabel 实例对象
      * @return 实例对象
      */
-    SubjectLabel insert(SubjectLabel subjectLabel);
+    Integer insert(SubjectLabel subjectLabel);
 
     /**
      * 修改数据

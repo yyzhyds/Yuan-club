@@ -62,4 +62,5 @@ public interface AuthRoleDao {
      */
     int deleteById(Long id);
 
+    List<AuthRole> queryByRoleList(@Param("list") List<Long> roleIdList);
 }

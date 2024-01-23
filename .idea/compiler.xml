@@ -24,6 +24,7 @@
         <module name="Yuan_club_infra" />
         <module name="Yuan_club_subject_api" />
         <module name="Yuan_club_domain" />
+        <module name="Yuan-club-wx" />
         <module name="Yuan-club-auth-api" />
       </profile>
     </annotationProcessing>
@@ -39,6 +40,7 @@
       <module name="Yuan-club-auth-infra" target="1.8" />
       <module name="Yuan-club-auth-starter" target="1.8" />
       <module name="Yuan-club-oss" target="1.8" />
+      <module name="Yuan-club-wx" target="1.8" />
       <module name="Yuan-clud-gateway" target="1.8" />
       <module name="Yuan_club_application" target="1.8" />
       <module name="Yuan_club_application_controller" target="1.8" />

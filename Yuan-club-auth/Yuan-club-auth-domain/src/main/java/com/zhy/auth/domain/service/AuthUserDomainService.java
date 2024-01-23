@@ -1,5 +1,6 @@
 package com.zhy.auth.domain.service;
 
+import cn.dev33.satoken.stp.SaTokenInfo;
 import com.zhy.auth.domain.entity.AuthUserBO;
 
 /**
@@ -15,4 +16,8 @@ public interface AuthUserDomainService {
     boolean update(AuthUserBO authUserBO);
 
     boolean delete(AuthUserBO authUserBO);
+
+    SaTokenInfo doLogin(String validCode);
+
+    AuthUserBO getUserInfo(AuthUserBO authUserBO);
 }

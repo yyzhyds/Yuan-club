@@ -79,4 +79,9 @@ public class AuthRoleServiceImpl implements AuthRoleService {
     public AuthRole queryByCondition(AuthRole authRole) {
         return authRoleDao.queryAllByLimit(authRole);
     }
+
+    @Override
+    public List<AuthRole> queryByRoleList(List<Long> roleIdList) {
+        return authRoleDao.queryByRoleList(roleIdList);
+    }
 }

@@ -54,4 +54,7 @@ public interface AuthRoleService {
      * 根据条件查询角色
      */
     AuthRole queryByCondition(AuthRole authRole);
+
+    List<AuthRole> queryByRoleList(List<Long> roleIdList);
+
 }

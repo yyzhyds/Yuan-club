@@ -17,8 +17,9 @@ public interface SubjectLabelDomainService {
 
     /**
      * 新增标签
-    */
-    void add(SubjectLabelBO subjectLabelBO);
+     */
+    Boolean add(SubjectLabelBO subjectLabelBO);
+
 
     /**
      * 更新标签

@@ -1,5 +1,6 @@
 package com.zhy.auth.infra.basic.service.impl;
 
+import com.zhy.auth.infra.basic.entity.AuthRole;
 import com.zhy.auth.infra.basic.entity.AuthRolePermission;
 import com.zhy.auth.infra.basic.mapper.AuthRolePermissionDao;
 import com.zhy.auth.infra.basic.service.AuthRolePermissionService;
@@ -81,5 +82,11 @@ public class AuthRolePermissionServiceImpl implements AuthRolePermissionService 
     public int batchInsert(List<AuthRolePermission> authRolePermissionList) {
         return this.authRolePermissionDao.insertBatch(authRolePermissionList);
     }
+
+    @Override
+    public List<AuthRolePermission> queryByCondition(AuthRolePermission authRolePermission) {
+        return this.authRolePermissionDao.queryAll(authRolePermission);
+    }
+
 
 }

@@ -26,7 +26,6 @@ public interface AuthUserService {
      * @param limit 查询条数
      * @return 对象列表
      */
-    List<AuthUser> queryAllByLimit(int offset, int limit);
 
     /**
      * 新增数据
@@ -52,4 +51,5 @@ public interface AuthUserService {
      */
     boolean deleteById(Long id);
 
+    List<AuthUser> queryByCondition(AuthUser authUser);
 }

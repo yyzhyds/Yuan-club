@@ -25,7 +25,7 @@
     <select id="queryAllByLimit" resultMap="SubjectJudgeMap">
         select
         id, subject_id, is_correct, created_by, created_time, update_by, update_time, is_deleted
-        from syuan_club.subject_judge
+        from yuan_club.subject_judge
         <where>
             <if test="id != null">
                 and id = #{id}

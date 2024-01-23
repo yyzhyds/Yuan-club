@@ -13,6 +13,7 @@
       <module fileurl="file://$PROJECT_DIR$/Yuan-club-auth-infra.iml" filepath="$PROJECT_DIR$/Yuan-club-auth-infra.iml" />
       <module fileurl="file://$PROJECT_DIR$/Yuan-club-auth-starter.iml" filepath="$PROJECT_DIR$/Yuan-club-auth-starter.iml" />
       <module fileurl="file://$PROJECT_DIR$/Yuan-club-oss.iml" filepath="$PROJECT_DIR$/Yuan-club-oss.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Yuan-club-wx.iml" filepath="$PROJECT_DIR$/Yuan-club-wx.iml" />
       <module fileurl="file://$PROJECT_DIR$/Yuan-clud-gateway.iml" filepath="$PROJECT_DIR$/Yuan-clud-gateway.iml" />
       <module fileurl="file://$PROJECT_DIR$/Yuan_club_subject/Yuan_club_application/Yuan_club_application.iml" filepath="$PROJECT_DIR$/Yuan_club_subject/Yuan_club_application/Yuan_club_application.iml" />
       <module fileurl="file://$PROJECT_DIR$/Yuan_club_subject/Yuan_club_application/Yuan_club_application_controller/Yuan_club_application_controller.iml" filepath="$PROJECT_DIR$/Yuan_club_subject/Yuan_club_application/Yuan_club_application_controller/Yuan_club_application_controller.iml" />

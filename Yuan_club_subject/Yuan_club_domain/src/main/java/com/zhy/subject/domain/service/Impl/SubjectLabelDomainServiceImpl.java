@@ -32,17 +32,24 @@ public class SubjectLabelDomainServiceImpl implements SubjectLabelDomainService 
     private SubjectLabelService subjectLabelService;
 
     @Override
-    public void add(SubjectLabelBO subjectLabelBO) {
-        if (log.isInfoEnabled()){
-            log.info("SubjectCategoryService.add.bo:{}", JSON.toJSONString(subjectLabelBO));
+    public Boolean add(SubjectLabelBO subjectLabelBO) {
+        if (log.isInfoEnabled()) {
+            log.info("SubjectLabelDomainServiceImpl.add.bo:{}", JSON.toJSONString(subjectLabelBO));
         }
-        SubjectLabel subjectLabel = SubjectLabelConverter.INSTANCE.convertBoToLabel(subjectLabelBO);
-        subjectLabelService.insert(subjectLabel);
+        SubjectLabel subjectLabel = SubjectLabelConverter.INSTANCE
+                .convertBoToLabel(subjectLabelBO);
+        subjectLabel.setIsDeleted(IsDeleteFlagEnum.UN_DELETED.getCode());
+        int count = subjectLabelService.insert(subjectLabel);
+        return count > 0;
     }
+
 
 
     @Override
     public Boolean update(SubjectLabelBO subjectLabelBO) {
+        if (log.isInfoEnabled()) {
+            log.info("SubjectLabelDomainServiceImpl.update.bo:{}", JSON.toJSONString(subjectLabelBO));
+        }
         SubjectLabel subjectLabel = SubjectLabelConverter.INSTANCE
                 .convertBoToLabel(subjectLabelBO);
         int count = subjectLabelService.update(subjectLabel);
@@ -51,7 +58,10 @@ public class SubjectLabelDomainServiceImpl implements SubjectLabelDomainService 
 
     @Override
     public Boolean delete(SubjectLabelBO subjectLabelBO) {
-        SubjectLabel subjectLabel  = SubjectLabelConverter.INSTANCE
+        if (log.isInfoEnabled()) {
+            log.info("SubjectLabelDomainServiceImpl.update.bo:{}", JSON.toJSONString(subjectLabelBO));
+        }
+        SubjectLabel subjectLabel = SubjectLabelConverter.INSTANCE
                 .convertBoToLabel(subjectLabelBO);
         subjectLabel.setIsDeleted(IsDeleteFlagEnum.DELETED.getCode());
         int count = subjectLabelService.update(subjectLabel);

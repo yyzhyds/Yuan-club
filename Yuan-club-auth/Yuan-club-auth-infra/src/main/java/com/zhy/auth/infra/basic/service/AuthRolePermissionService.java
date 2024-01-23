@@ -1,5 +1,6 @@
 package com.zhy.auth.infra.basic.service;
 
+import com.zhy.auth.infra.basic.entity.AuthRole;
 import com.zhy.auth.infra.basic.entity.AuthRolePermission;
 import java.util.List;
 
@@ -52,4 +53,9 @@ public interface AuthRolePermissionService {
      */
     boolean deleteById(Long id);
 
-    int batchInsert(List<AuthRolePermission> authRolePermissionList);}
+    int batchInsert(List<AuthRolePermission> authRolePermissionList);
+
+    List<AuthRolePermission> queryByCondition(AuthRolePermission authRolePermission);
+
+
+}

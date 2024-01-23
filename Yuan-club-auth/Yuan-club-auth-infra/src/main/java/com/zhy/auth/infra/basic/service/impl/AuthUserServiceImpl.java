@@ -37,10 +37,6 @@ public class AuthUserServiceImpl implements AuthUserService {
      * @param limit 查询条数
      * @return 对象列表
      */
-    @Override
-    public List<AuthUser> queryAllByLimit(int offset, int limit) {
-        return this.authUserDao.queryAllByLimit(offset, limit);
-    }
 
     /**
      * 新增数据
@@ -75,4 +71,11 @@ public class AuthUserServiceImpl implements AuthUserService {
     public boolean deleteById(Long id) {
         return this.authUserDao.deleteById(id) > 0;
     }
+
+
+    @Override
+    public List<AuthUser> queryByCondition(AuthUser authUser) {
+        return this.authUserDao.queryAllByLimit(authUser);
+    }
+
 }
