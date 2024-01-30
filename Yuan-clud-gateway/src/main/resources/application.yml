@@ -18,7 +18,7 @@ spring:
           filters:
             - StripPrefix=1
         - id: subject
-          uri: lb://yuan-club-subject
+          uri: lb://yuan-club-subject-dev
           predicates:
             - Path=/subject/**
           filters:

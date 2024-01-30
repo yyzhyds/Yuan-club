@@ -22,28 +22,6 @@ public class SubjectCategoryServiceImpl implements SubjectCategoryService {
     @Resource
     private SubjectCategoryDao subjectCategoryDao;
 
-    /**
-     * 通过ID查询单条数据
-     *
-     * @param id 主键
-     * @return 实例对象
-     */
-    @Override
-    public SubjectCategory queryById(Long id) {
-        return this.subjectCategoryDao.queryById(id);
-    }
-
-    /**
-     * 查询多条数据
-     *
-     * @param offset 查询起始位置
-     * @param limit 查询条数
-     * @return 对象列表
-     */
-    @Override
-    public List<SubjectCategory> queryAllByLimit(int offset, int limit) {
-        return this.subjectCategoryDao.queryAllByLimit(offset, limit);
-    }
 
     /**
      * 新增数据
@@ -53,12 +31,17 @@ public class SubjectCategoryServiceImpl implements SubjectCategoryService {
      */
     @Override
     public SubjectCategory insert(SubjectCategory subjectCategory) {
-        if (log.isInfoEnabled()){
-            log.info("SubjectCategoryController.add.subjectCategory:{}",
-                    JSON.toJSONString(subjectCategory));
+        if(log.isInfoEnabled()){
+            log.info("SubjectCategoryController.add.subjectCategory:{}"
+                    , JSON.toJSONString(subjectCategory));
         }
         this.subjectCategoryDao.insert(subjectCategory);
         return subjectCategory;
+    }
+
+    @Override
+    public SubjectCategory queryById(Long id) {
+        return this.subjectCategoryDao.queryById(id);
     }
 
     /**
@@ -92,4 +75,5 @@ public class SubjectCategoryServiceImpl implements SubjectCategoryService {
     public Integer querySubjectCount(Long id) {
         return this.subjectCategoryDao.querySubjectCount(id);
     }
+
 }

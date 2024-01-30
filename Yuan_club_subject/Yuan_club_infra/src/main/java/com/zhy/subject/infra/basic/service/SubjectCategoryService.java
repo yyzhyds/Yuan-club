@@ -11,6 +11,9 @@ import java.util.List;
  */
 public interface SubjectCategoryService {
 
+
+    SubjectCategory insert(SubjectCategory subjectCategory);
+
     /**
      * 通过ID查询单条数据
      *
@@ -18,23 +21,6 @@ public interface SubjectCategoryService {
      * @return 实例对象
      */
     SubjectCategory queryById(Long id);
-
-    /**
-     * 查询多条数据
-     *
-     * @param offset 查询起始位置
-     * @param limit 查询条数
-     * @return 对象列表
-     */
-    List<SubjectCategory> queryAllByLimit(int offset, int limit);
-
-    /**
-     * 新增数据
-     *
-     * @param subjectCategory 实例对象
-     * @return 实例对象
-     */
-    SubjectCategory insert(SubjectCategory subjectCategory);
 
     /**
      * 修改数据
@@ -57,5 +43,7 @@ public interface SubjectCategoryService {
      */
     List<SubjectCategory> queryCategory(SubjectCategory subjectCategory);
 
+
     Integer querySubjectCount(Long id);
+
 }

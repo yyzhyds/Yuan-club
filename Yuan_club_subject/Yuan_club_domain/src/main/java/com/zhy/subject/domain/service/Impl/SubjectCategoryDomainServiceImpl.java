@@ -6,6 +6,7 @@ import com.zhy.subject.domain.convert.SubjectCategoryConverter;
 import com.zhy.subject.domain.entity.SubjectCategoryBO;
 import com.zhy.subject.domain.entity.SubjectLabelBO;
 import com.zhy.subject.domain.service.SubjectCategoryDomainService;
+import com.zhy.subject.domain.util.CacheUtil;
 import com.zhy.subject.infra.basic.entity.SubjectCategory;
 import com.zhy.subject.infra.basic.entity.SubjectLabel;
 import com.zhy.subject.infra.basic.entity.SubjectMapping;
@@ -19,6 +20,9 @@ import org.springframework.util.CollectionUtils;
 
 import javax.annotation.Resource;
 import java.util.*;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.FutureTask;
+import java.util.concurrent.ThreadPoolExecutor;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -42,7 +46,11 @@ public class SubjectCategoryDomainServiceImpl implements SubjectCategoryDomainSe
     @Resource
     private SubjectLabelService subjectLabelService;
 
+    @Resource
+    private ThreadPoolExecutor labelThreadPool;
 
+    @Resource
+    private CacheUtil cacheUtil;
 
     @Override
     public void add(SubjectCategoryBO subjectCategoryBO) {
@@ -89,39 +97,107 @@ public class SubjectCategoryDomainServiceImpl implements SubjectCategoryDomainSe
         return count > 0;
     }
 
+//    @SneakyThrows
+//    @Override
+//    public List<SubjectCategoryBO> queryCategoryAndLabel(SubjectCategoryBO subjectCategoryBO) {
+//        //查询当前大类下所有分类
+//        SubjectCategory subjectCategory = new SubjectCategory();
+//        subjectCategory.setParentId(subjectCategoryBO.getParentId());
+//        subjectCategory.setIsDeleted(IsDeleteFlagEnum.UN_DELETED.getCode());
+//        List<SubjectCategory> subjectCategoryList = subjectCategoryService.queryCategory(subjectCategory);
+//        List<SubjectCategoryBO> categoryBOList = SubjectCategoryConverter.INSTANCE.convertBoToCategory(subjectCategoryList);
+//        //一次获取标签信息
+//        List<FutureTask<Map<Long,List<SubjectLabelBO>>>> futureTaskList = new LinkedList<>();
+//        categoryBOList.forEach(category -> {
+//            SubjectMapping subjectMapping = new SubjectMapping();
+//            subjectMapping.setCategoryId(category.getId());
+//            List<SubjectMapping> mappingList = subjectMappingService.queryLabelId(subjectMapping);
+//            if (CollectionUtils.isEmpty(mappingList)){
+//                return;
+//            }
+//            List<Long> labelIdList = mappingList.stream().map(SubjectMapping::getLabelId).collect(Collectors.toList());
+//            List<SubjectLabel> labelList = subjectLabelService.batchQueryById(labelIdList);
+//            List<SubjectLabelBO> labelBOList = new LinkedList<>();
+//            labelList.forEach(label -> {
+//                SubjectLabelBO subjectLabelBO = new SubjectLabelBO();
+//                subjectLabelBO.setId(label.getId());
+//                subjectLabelBO.setLabelName(label.getLabelName());
+//                subjectLabelBO.setCategoryId(label.getCategoryId());
+//                subjectLabelBO.setSortNum(label.getSortNum());
+//                labelBOList.add(subjectLabelBO);
+//            });
+//            category.setLabelBOList(labelBOList);
+//        });
+//
+//        return categoryBOList;
+//    }
+
+
     @SneakyThrows
     @Override
     public List<SubjectCategoryBO> queryCategoryAndLabel(SubjectCategoryBO subjectCategoryBO) {
-        //查询当前大类下所有分类
+        Long id = subjectCategoryBO.getId();
+        String cacheKey = "categoryAndLabel." + subjectCategoryBO.getId();
+        List<SubjectCategoryBO> subjectCategoryBOS = cacheUtil.getResult(cacheKey,
+                SubjectCategoryBO.class, (key) -> getSubjectCategoryBOS(id));
+        return subjectCategoryBOS;
+    }
+
+
+    private List<SubjectCategoryBO> getSubjectCategoryBOS(Long categoryId) {
         SubjectCategory subjectCategory = new SubjectCategory();
-        subjectCategory.setParentId(subjectCategoryBO.getParentId());
+        subjectCategory.setParentId(categoryId);
         subjectCategory.setIsDeleted(IsDeleteFlagEnum.UN_DELETED.getCode());
         List<SubjectCategory> subjectCategoryList = subjectCategoryService.queryCategory(subjectCategory);
+        if (log.isInfoEnabled()) {
+            log.info("SubjectCategoryController.queryCategoryAndLabel.subjectCategoryList:{}",
+                    JSON.toJSONString(subjectCategoryList));
+        }
         List<SubjectCategoryBO> categoryBOList = SubjectCategoryConverter.INSTANCE.convertBoToCategory(subjectCategoryList);
-        //一次获取标签信息
-        categoryBOList.forEach(category -> {
-            SubjectMapping subjectMapping = new SubjectMapping();
-            subjectMapping.setCategoryId(category.getId());
-            List<SubjectMapping> mappingList = subjectMappingService.queryLabelId(subjectMapping);
-            if (CollectionUtils.isEmpty(mappingList)){
-                return;
+        Map<Long, List<SubjectLabelBO>> map = new HashMap<>();
+        List<CompletableFuture<Map<Long, List<SubjectLabelBO>>>> completableFutureList = categoryBOList.stream().map(category ->
+                CompletableFuture.supplyAsync(() -> getLabelBOList(category), labelThreadPool)
+        ).collect(Collectors.toList());
+        completableFutureList.forEach(future -> {
+            try {
+                Map<Long, List<SubjectLabelBO>> resultMap = future.get();
+                map.putAll(resultMap);
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            List<Long> labelIdList = mappingList.stream().map(SubjectMapping::getLabelId).collect(Collectors.toList());
-            List<SubjectLabel> labelList = subjectLabelService.batchQueryById(labelIdList);
-            List<SubjectLabelBO> labelBOList = new LinkedList<>();
-            labelList.forEach(label -> {
-                SubjectLabelBO subjectLabelBO = new SubjectLabelBO();
-                subjectLabelBO.setId(label.getId());
-                subjectLabelBO.setLabelName(label.getLabelName());
-                subjectLabelBO.setCategoryId(label.getCategoryId());
-                subjectLabelBO.setSortNum(label.getSortNum());
-                labelBOList.add(subjectLabelBO);
-            });
-            category.setLabelBOList(labelBOList);
         });
-
+        categoryBOList.forEach(categoryBO -> {
+            categoryBO.setLabelBOList(map.get(categoryBO.getId()));
+        });
         return categoryBOList;
     }
+
+    private Map<Long, List<SubjectLabelBO>> getLabelBOList(SubjectCategoryBO category) {
+        if (log.isInfoEnabled()) {
+            log.info("getLabelBOList:{}", JSON.toJSONString(category));
+        }
+        Map<Long, List<SubjectLabelBO>> labelMap = new HashMap<>();
+        SubjectMapping subjectMapping = new SubjectMapping();
+        subjectMapping.setCategoryId(category.getId());
+        List<SubjectMapping> mappingList = subjectMappingService.queryLabelId(subjectMapping);
+        if (CollectionUtils.isEmpty(mappingList)) {
+            return null;
+        }
+        List<Long> labelIdList = mappingList.stream().map(SubjectMapping::getLabelId).collect(Collectors.toList());
+        List<SubjectLabel> labelList = subjectLabelService.batchQueryById(labelIdList);
+        List<SubjectLabelBO> labelBOList = new LinkedList<>();
+        labelList.forEach(label -> {
+            SubjectLabelBO subjectLabelBO = new SubjectLabelBO();
+            subjectLabelBO.setId(label.getId());
+            subjectLabelBO.setLabelName(label.getLabelName());
+            subjectLabelBO.setCategoryId(label.getCategoryId());
+            subjectLabelBO.setSortNum(label.getSortNum());
+            labelBOList.add(subjectLabelBO);
+        });
+        labelMap.put(category.getId(), labelBOList);
+        return labelMap;
+    }
+
 
 
 }

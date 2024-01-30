@@ -10,6 +10,7 @@ import com.zhy.subject.application.dto.SubjectLabelDTO;
 import com.zhy.subject.common.entity.Result;
 import com.zhy.subject.domain.entity.SubjectCategoryBO;
 import com.zhy.subject.domain.service.SubjectCategoryDomainService;
+import com.zhy.subject.util.LoginUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.bind.annotation.*;
@@ -152,6 +153,7 @@ public class SubjectCategoryController {
                 log.info("SubjectCategoryController.queryCategoryAndLabel.dto:{}"
                         , JSON.toJSONString(subjectCategoryDTO));
             }
+            String loginId = LoginUtil.getLoginId();
             Preconditions.checkNotNull(subjectCategoryDTO.getId(), "分类id不能为空");
             SubjectCategoryBO subjectCategoryBO = SubjectCategoryDTOConverter.INSTANCE.
                     convertDtoToCategoryBo(subjectCategoryDTO);
