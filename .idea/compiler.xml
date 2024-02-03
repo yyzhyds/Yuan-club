@@ -15,6 +15,7 @@
         <module name="Yuan-clud-gateway" />
         <module name="Yuan-club-auth-application-mq" />
         <module name="Yuan-club-auth-application-job" />
+        <module name="Yuan-club-es" />
         <module name="Yuan_club_application_controller" />
         <module name="Yuan-club-oss" />
         <module name="Yuan-club-auth-domain" />
@@ -39,6 +40,7 @@
       <module name="Yuan-club-auth-domain" target="1.8" />
       <module name="Yuan-club-auth-infra" target="1.8" />
       <module name="Yuan-club-auth-starter" target="1.8" />
+      <module name="Yuan-club-es" target="1.8" />
       <module name="Yuan-club-oss" target="1.8" />
       <module name="Yuan-club-wx" target="1.8" />
       <module name="Yuan-clud-gateway" target="1.8" />
@@ -53,5 +55,10 @@
       <module name="Yuan_club_subject" target="1.8" />
       <module name="Yuan_club_subject_api" target="1.8" />
     </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="Yuan-club-es" options="-parameters" />
+    </option>
   </component>
 </project>
