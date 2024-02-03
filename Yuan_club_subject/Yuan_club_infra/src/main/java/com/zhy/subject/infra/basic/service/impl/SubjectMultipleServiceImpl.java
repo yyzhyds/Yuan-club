@@ -11,8 +11,8 @@ import java.util.List;
 /**
  * 多选题信息表(SubjectMultiple)表服务实现类
  *
- * @author makejava
- * @since 2024-01-17 10:49:35
+ * @author 随缘而愈
+ * @since 2023-10-05 21:30:05
  */
 @Service("subjectMultipleService")
 public class SubjectMultipleServiceImpl implements SubjectMultipleService {
@@ -30,17 +30,6 @@ public class SubjectMultipleServiceImpl implements SubjectMultipleService {
         return this.subjectMultipleDao.queryById(id);
     }
 
-    /**
-     * 查询多条数据
-     *
-     * @param offset 查询起始位置
-     * @param limit 查询条数
-     * @return 对象列表
-     */
-//    @Override
-//    public List<SubjectMultiple> queryAllByLimit(int offset, int limit) {
-//        return this.subjectMultipleDao.queryAllByLimit(offset, limit);
-//    }
 
     /**
      * 新增数据
@@ -54,10 +43,6 @@ public class SubjectMultipleServiceImpl implements SubjectMultipleService {
         return subjectMultiple;
     }
 
-
-    public void bathInsert(List<SubjectMultiple> subjectMultipleList){
-        this.subjectMultipleDao.bathInsert(subjectMultipleList);
-    }
     /**
      * 修改数据
      *
@@ -82,7 +67,12 @@ public class SubjectMultipleServiceImpl implements SubjectMultipleService {
     }
 
     @Override
+    public void batchInsert(List<SubjectMultiple> subjectMultipleList) {
+        this.subjectMultipleDao.insertBatch(subjectMultipleList);
+    }
+
+    @Override
     public List<SubjectMultiple> queryByCondition(SubjectMultiple subjectMultiple) {
-        return subjectMultipleDao.queryAllByLimit(subjectMultiple);
+        return this.subjectMultipleDao.queryAllByLimit(subjectMultiple);
     }
 }

@@ -21,7 +21,7 @@ public class SaTokenConfigure {
     public SaReactorFilter getSaReactorFilter() {
         return new SaReactorFilter()
                 // 拦截地址
-                //.addInclude("/**")
+                .addInclude("/**")
                 // 鉴权方法：每次访问进入
                 .setAuth(obj -> {
                     System.out.println("-------- 前端访问path：" + SaHolder.getRequest().getRequestPath());
@@ -30,8 +30,8 @@ public class SaTokenConfigure {
 
 
 //                    SaRouter.match("/oss/**", r -> StpUtil.checkLogin());
-//                    SaRouter.match("/subject/subject/add", r -> StpUtil.checkPermission("subject:add"));
-//                    SaRouter.match("/subject/**", r -> StpUtil.checkLogin());
+ //                   SaRouter.match("/subject/subject/add", r -> StpUtil.checkPermission("subject:add"));
+   //                 SaRouter.match("/subject/**", r -> StpUtil.checkLogin());
                 })
                 ;
     }

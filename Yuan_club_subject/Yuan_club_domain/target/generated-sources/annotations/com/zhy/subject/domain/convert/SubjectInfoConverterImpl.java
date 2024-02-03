@@ -10,7 +10,7 @@ import javax.annotation.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2024-01-30T12:28:35+0800",
+    date = "2024-02-01T09:58:52+0800",
     comments = "version: 1.4.2.Final, compiler: javac, environment: Java 1.8.0_211 (Oracle Corporation)"
 )
 public class SubjectInfoConverterImpl implements SubjectInfoConverter {
@@ -30,17 +30,13 @@ public class SubjectInfoConverterImpl implements SubjectInfoConverter {
         subjectInfo.setSubjectType( subjectInfoBO.getSubjectType() );
         subjectInfo.setSubjectScore( subjectInfoBO.getSubjectScore() );
         subjectInfo.setSubjectParse( subjectInfoBO.getSubjectParse() );
-        subjectInfo.setCreatedBy( subjectInfoBO.getCreatedBy() );
-        subjectInfo.setCreatedTime( subjectInfoBO.getCreatedTime() );
-        subjectInfo.setUpdateBy( subjectInfoBO.getUpdateBy() );
-        subjectInfo.setUpdateTime( subjectInfoBO.getUpdateTime() );
-        subjectInfo.setIsDeleted( subjectInfoBO.getIsDeleted() );
+        subjectInfo.setSubjectCount( subjectInfoBO.getSubjectCount() );
 
         return subjectInfo;
     }
 
     @Override
-    public SubjectInfoBO convertOptionToBO(SubjectOptionBO subjectOptionBO) {
+    public SubjectInfoBO convertOptionToBo(SubjectOptionBO subjectOptionBO) {
         if ( subjectOptionBO == null ) {
             return null;
         }
@@ -57,7 +53,7 @@ public class SubjectInfoConverterImpl implements SubjectInfoConverter {
     }
 
     @Override
-    public SubjectInfoBO convertOptionAndInfoToBO(SubjectOptionBO subjectOptionBO, SubjectInfo subjectInfo) {
+    public SubjectInfoBO convertOptionAndInfoToBo(SubjectOptionBO subjectOptionBO, SubjectInfo subjectInfo) {
         if ( subjectOptionBO == null && subjectInfo == null ) {
             return null;
         }
@@ -79,24 +75,20 @@ public class SubjectInfoConverterImpl implements SubjectInfoConverter {
             subjectInfoBO.setSubjectType( subjectInfo.getSubjectType() );
             subjectInfoBO.setSubjectScore( subjectInfo.getSubjectScore() );
             subjectInfoBO.setSubjectParse( subjectInfo.getSubjectParse() );
-            subjectInfoBO.setCreatedBy( subjectInfo.getCreatedBy() );
-            subjectInfoBO.setCreatedTime( subjectInfo.getCreatedTime() );
-            subjectInfoBO.setUpdateBy( subjectInfo.getUpdateBy() );
-            subjectInfoBO.setUpdateTime( subjectInfo.getUpdateTime() );
-            subjectInfoBO.setIsDeleted( subjectInfo.getIsDeleted() );
+            subjectInfoBO.setSubjectCount( subjectInfo.getSubjectCount() );
         }
 
         return subjectInfoBO;
     }
 
     @Override
-    public List<SubjectInfoBO> convertListInfoToBO(List<SubjectInfo> infoList) {
-        if ( infoList == null ) {
+    public List<SubjectInfoBO> convertListInfoToBO(List<SubjectInfo> subjectInfoList) {
+        if ( subjectInfoList == null ) {
             return null;
         }
 
-        List<SubjectInfoBO> list = new ArrayList<SubjectInfoBO>( infoList.size() );
-        for ( SubjectInfo subjectInfo : infoList ) {
+        List<SubjectInfoBO> list = new ArrayList<SubjectInfoBO>( subjectInfoList.size() );
+        for ( SubjectInfo subjectInfo : subjectInfoList ) {
             list.add( subjectInfoToSubjectInfoBO( subjectInfo ) );
         }
 
@@ -117,11 +109,7 @@ public class SubjectInfoConverterImpl implements SubjectInfoConverter {
         subjectInfoBO.setSubjectType( subjectInfo.getSubjectType() );
         subjectInfoBO.setSubjectScore( subjectInfo.getSubjectScore() );
         subjectInfoBO.setSubjectParse( subjectInfo.getSubjectParse() );
-        subjectInfoBO.setCreatedBy( subjectInfo.getCreatedBy() );
-        subjectInfoBO.setCreatedTime( subjectInfo.getCreatedTime() );
-        subjectInfoBO.setUpdateBy( subjectInfo.getUpdateBy() );
-        subjectInfoBO.setUpdateTime( subjectInfo.getUpdateTime() );
-        subjectInfoBO.setIsDeleted( subjectInfo.getIsDeleted() );
+        subjectInfoBO.setSubjectCount( subjectInfo.getSubjectCount() );
 
         return subjectInfoBO;
     }

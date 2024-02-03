@@ -1,16 +1,16 @@
 package com.zhy.auth.infra.basic.entity;
 
-import java.util.Date;
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * (AuthRolePermission)实体类
  *
- * @author makejava
- * @since 2024-01-22 11:00:30
+ * @author 随缘而愈
+ * @since 2023-11-04 22:16:00
  */
 public class AuthRolePermission implements Serializable {
-    private static final long serialVersionUID = -69493722467903802L;
+    private static final long serialVersionUID = 459343371709166261L;
     
     private Long id;
     
@@ -18,20 +18,20 @@ public class AuthRolePermission implements Serializable {
     
     private Long permissionId;
     /**
-    * 创建人
-    */
+     * 创建人
+     */
     private String createdBy;
     /**
-    * 创建时间
-    */
+     * 创建时间
+     */
     private Date createdTime;
     /**
-    * 更新人
-    */
+     * 更新人
+     */
     private String updateBy;
     /**
-    * 更新时间
-    */
+     * 更新时间
+     */
     private Date updateTime;
     
     private Integer isDeleted;
@@ -102,3 +102,4 @@ public class AuthRolePermission implements Serializable {
     }
 
 }
+

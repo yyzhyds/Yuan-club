@@ -7,7 +7,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.ComponentScan;
 
 /**
- * @author Lenovo
+ * @author 随缘而愈
  * @version 1.0
  * @description 刷题微服务启动类
  * @date 14/1/2024 下午4:30

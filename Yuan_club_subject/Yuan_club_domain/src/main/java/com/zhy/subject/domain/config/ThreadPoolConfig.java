@@ -3,13 +3,15 @@ package com.zhy.subject.domain.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import java.util.concurrent.*;
+import java.util.concurrent.LinkedBlockingDeque;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 /**
- * @author Lenovo
- * @version 1.0
- * @description 线程池config管理
- * @date 25/1/2024 上午10:39
+ * 线程池的config管理
+ *
+ * @author: 随缘而愈
+ * @date: 2023/11/26
  */
 @Configuration
 public class ThreadPoolConfig {
@@ -21,6 +23,5 @@ public class ThreadPoolConfig {
                 new CustomNameThreadFactory("label"),
                 new ThreadPoolExecutor.CallerRunsPolicy());
     }
-
 
 }

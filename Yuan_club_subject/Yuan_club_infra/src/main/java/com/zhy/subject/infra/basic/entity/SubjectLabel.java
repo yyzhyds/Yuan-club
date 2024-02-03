@@ -8,46 +8,46 @@ import java.io.Serializable;
 /**
  * 题目标签表(SubjectLabel)实体类
  *
- * @author makejava
- * @since 2024-01-16 10:04:27
+ * @author 随缘而愈
+ * @since 2023-10-03 21:50:30
  */
 @Data
 public class SubjectLabel implements Serializable {
-    private static final long serialVersionUID = -85030507391291174L;
+
     /**
-    * 主键
-    */
+     * 主键
+     */
     private Long id;
     /**
-    * 标签分类
-    */
+     * 标签分类
+     */
     private String labelName;
     /**
-    * 排序
-    */
-    private Integer sortNum;
-    
+     * 分类id
+     */
     private Long categoryId;
     /**
-    * 创建人
-    */
+     * 排序
+     */
+    private Integer sortNum;
+    /**
+     * 创建人
+     */
     private String createdBy;
     /**
-    * 创建时间
-    */
+     * 创建时间
+     */
     private Date createdTime;
     /**
-    * 更新人
-    */
-    private String updateBy;
-    /**
-    * 更新时间
-    */
-    private Date updateTime;
-    /**
-     * 是否删除
+     * 更新人
      */
+    private String updateBy;
+    
     private Integer isDeleted;
-
+    /**
+     * 更新时间
+     */
+    private Date updateTime;
 
 }
+

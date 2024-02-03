@@ -1,19 +1,16 @@
 package com.zhy.auth.infra.basic.entity;
 
-import lombok.Data;
-
-import java.util.Date;
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * (AuthUser)实体类
  *
- * @author makejava
- * @since 2024-01-21 10:32:34
+ * @author 随缘而愈
+ * @since 2023-11-01 01:25:22
  */
-@Data
 public class AuthUser implements Serializable {
-    private static final long serialVersionUID = -28453910955444224L;
+    private static final long serialVersionUID = -50435275569670090L;
     
     private Long id;
     
@@ -37,20 +34,20 @@ public class AuthUser implements Serializable {
     
     private String extJson;
     /**
-    * 创建人
-    */
+     * 创建人
+     */
     private String createdBy;
     /**
-    * 创建时间
-    */
+     * 创建时间
+     */
     private Date createdTime;
     /**
-    * 更新人
-    */
+     * 更新人
+     */
     private String updateBy;
     /**
-    * 更新时间
-    */
+     * 更新时间
+     */
     private Date updateTime;
     
     private Integer isDeleted;
@@ -184,25 +181,5 @@ public class AuthUser implements Serializable {
         this.isDeleted = isDeleted;
     }
 
-    @Override
-    public String toString() {
-        return "AuthUser{" +
-                "id=" + id +
-                ", userName='" + userName + '\'' +
-                ", nickName='" + nickName + '\'' +
-                ", email='" + email + '\'' +
-                ", phone='" + phone + '\'' +
-                ", password='" + password + '\'' +
-                ", sex=" + sex +
-                ", avatar='" + avatar + '\'' +
-                ", status=" + status +
-                ", introduce='" + introduce + '\'' +
-                ", extJson='" + extJson + '\'' +
-                ", createdBy='" + createdBy + '\'' +
-                ", createdTime=" + createdTime +
-                ", updateBy='" + updateBy + '\'' +
-                ", updateTime=" + updateTime +
-                ", isDeleted=" + isDeleted +
-                '}';
-    }
 }
+

@@ -11,8 +11,8 @@ import java.util.List;
 /**
  * 题目标签表(SubjectLabel)表服务实现类
  *
- * @author makejava
- * @since 2024-01-16 10:04:28
+ * @author 随缘而愈
+ * @since 2023-10-03 21:50:31
  */
 @Service("subjectLabelService")
 public class SubjectLabelServiceImpl implements SubjectLabelService {
@@ -31,25 +31,13 @@ public class SubjectLabelServiceImpl implements SubjectLabelService {
     }
 
     /**
-     * 查询多条数据
-     *
-     * @param offset 查询起始位置
-     * @param limit 查询条数
-     * @return 对象列表
-     */
-    @Override
-    public List<SubjectLabel> queryAllByLimit(int offset, int limit) {
-        return this.subjectLabelDao.queryAllByLimit(offset, limit);
-    }
-
-    /**
      * 新增数据
      *
      * @param subjectLabel 实例对象
      * @return 实例对象
      */
     @Override
-    public Integer insert(SubjectLabel subjectLabel) {
+    public int insert(SubjectLabel subjectLabel) {
         return this.subjectLabelDao.insert(subjectLabel);
     }
 
@@ -76,14 +64,12 @@ public class SubjectLabelServiceImpl implements SubjectLabelService {
     }
 
     @Override
-    public List<SubjectLabel> queryLabel(SubjectLabel subjectLabel) {
-        return this.subjectLabelDao.queryLabel(subjectLabel);
-    }
-
-    @Override
     public List<SubjectLabel> batchQueryById(List<Long> labelIdList) {
         return this.subjectLabelDao.batchQueryById(labelIdList);
     }
 
-
+    @Override
+    public List<SubjectLabel> queryByCondition(SubjectLabel subjectLabel) {
+        return this.subjectLabelDao.queryByCondition(subjectLabel);
+    }
 }

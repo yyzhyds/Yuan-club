@@ -1,13 +1,13 @@
 server:
   port: 4000
 minio:
-  url: http://192.168.100.110:9000
+  url: http://117.72.44.234:9000
   accessKey: minioadmin
   secretKey: minioadmin
 
-#storage:
-#  service:
-#    type: minio
+storage:
+  service:
+    type: minio
 #spring:
 #  cloud:
 #    nacos:

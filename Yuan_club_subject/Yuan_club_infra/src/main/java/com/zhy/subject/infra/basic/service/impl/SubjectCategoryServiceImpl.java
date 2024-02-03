@@ -13,12 +13,13 @@ import java.util.List;
 /**
  * 题目分类(SubjectCategory)表服务实现类
  *
- * @author makejava
- * @since 2024-01-14 17:04:14
+ * @author 随缘而愈
+ * @since 2023-10-01 21:50:05
  */
 @Service("subjectCategoryService")
 @Slf4j
 public class SubjectCategoryServiceImpl implements SubjectCategoryService {
+
     @Resource
     private SubjectCategoryDao subjectCategoryDao;
 
@@ -75,5 +76,4 @@ public class SubjectCategoryServiceImpl implements SubjectCategoryService {
     public Integer querySubjectCount(Long id) {
         return this.subjectCategoryDao.querySubjectCount(id);
     }
-
 }

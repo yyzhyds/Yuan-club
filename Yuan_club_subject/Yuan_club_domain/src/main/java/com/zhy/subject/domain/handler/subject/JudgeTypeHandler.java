@@ -1,5 +1,6 @@
 package com.zhy.subject.domain.handler.subject;
 
+
 import com.zhy.subject.common.enums.IsDeleteFlagEnum;
 import com.zhy.subject.common.enums.SubjectInfoTypeEnum;
 import com.zhy.subject.domain.convert.JudgeSubjectConverter;
@@ -11,19 +12,20 @@ import com.zhy.subject.infra.basic.service.SubjectJudgeService;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
-import java.util.LinkedList;
 import java.util.List;
 
 /**
- * @author Lenovo
- * @version 1.0
- * @description TODO
- * @date 17/1/2024 上午11:51
+ * 判断题目的策略类
+ * 
+ * @author: 随缘而愈
+ * @date: 2023/10/5
  */
 @Component
-public class JudgeTypeHandler implements SubjectTypeHandler {
+public class JudgeTypeHandler implements SubjectTypeHandler{
+
     @Resource
     private SubjectJudgeService subjectJudgeService;
+    
     @Override
     public SubjectInfoTypeEnum getHandlerType() {
         return SubjectInfoTypeEnum.JUDGE;
@@ -32,15 +34,12 @@ public class JudgeTypeHandler implements SubjectTypeHandler {
     @Override
     public void add(SubjectInfoBO subjectInfoBO) {
         //判断题目的插入
-        List<SubjectJudge> subjectJudgeList = new LinkedList<>();
-        subjectInfoBO.getOptionList().forEach(option->{
-            SubjectJudge subjectJudge = JudgeSubjectConverter.INSTANCE.convertBoToEntity(option);
-            subjectJudge.setSubjectId(subjectInfoBO.getId());
-            subjectJudge.setIsDeleted(IsDeleteFlagEnum.UN_DELETED.getCode());
-            subjectJudgeList.add(subjectJudge);
-        });
-        subjectJudgeService.bathInsert(subjectJudgeList);
-
+        SubjectJudge subjectJudge = new SubjectJudge();
+        SubjectAnswerBO subjectAnswerBO = subjectInfoBO.getOptionList().get(0);
+        subjectJudge.setSubjectId(subjectInfoBO.getId());
+        subjectJudge.setIsCorrect(subjectAnswerBO.getIsCorrect());
+        subjectJudge.setIsDeleted(IsDeleteFlagEnum.UN_DELETED.getCode());
+        subjectJudgeService.insert(subjectJudge);
     }
 
     @Override
@@ -52,6 +51,5 @@ public class JudgeTypeHandler implements SubjectTypeHandler {
         SubjectOptionBO subjectOptionBO = new SubjectOptionBO();
         subjectOptionBO.setOptionList(subjectAnswerBOList);
         return subjectOptionBO;
-
     }
 }

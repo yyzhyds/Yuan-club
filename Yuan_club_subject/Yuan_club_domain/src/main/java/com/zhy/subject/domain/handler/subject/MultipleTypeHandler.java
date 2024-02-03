@@ -1,5 +1,6 @@
 package com.zhy.subject.domain.handler.subject;
 
+
 import com.zhy.subject.common.enums.IsDeleteFlagEnum;
 import com.zhy.subject.common.enums.SubjectInfoTypeEnum;
 import com.zhy.subject.domain.convert.MultipleSubjectConverter;
@@ -15,15 +16,17 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * @author Lenovo
- * @version 1.0
- * @description TODO
- * @date 17/1/2024 上午11:51
+ * 多选题目的策略类
+ * 
+ * @author: 随缘而愈
+ * @date: 2023/10/5
  */
 @Component
-public class MultipleTypeHandler implements SubjectTypeHandler {
+public class MultipleTypeHandler implements SubjectTypeHandler{
+
     @Resource
     private SubjectMultipleService subjectMultipleService;
+    
     @Override
     public SubjectInfoTypeEnum getHandlerType() {
         return SubjectInfoTypeEnum.MULTIPLE;
@@ -33,13 +36,13 @@ public class MultipleTypeHandler implements SubjectTypeHandler {
     public void add(SubjectInfoBO subjectInfoBO) {
         //多选题目的插入
         List<SubjectMultiple> subjectMultipleList = new LinkedList<>();
-        subjectInfoBO.getOptionList().forEach(option->{
+        subjectInfoBO.getOptionList().forEach(option -> {
             SubjectMultiple subjectMultiple = MultipleSubjectConverter.INSTANCE.convertBoToEntity(option);
             subjectMultiple.setSubjectId(subjectInfoBO.getId());
             subjectMultiple.setIsDeleted(IsDeleteFlagEnum.UN_DELETED.getCode());
             subjectMultipleList.add(subjectMultiple);
         });
-        subjectMultipleService.bathInsert(subjectMultipleList);
+        subjectMultipleService.batchInsert(subjectMultipleList);
     }
 
     @Override
@@ -51,6 +54,5 @@ public class MultipleTypeHandler implements SubjectTypeHandler {
         SubjectOptionBO subjectOptionBO = new SubjectOptionBO();
         subjectOptionBO.setOptionList(subjectAnswerBOList);
         return subjectOptionBO;
-
     }
 }

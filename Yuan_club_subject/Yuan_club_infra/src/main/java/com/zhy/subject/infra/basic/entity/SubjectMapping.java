@@ -1,54 +1,51 @@
 package com.zhy.subject.infra.basic.entity;
 
-import lombok.Data;
-
 import java.util.Date;
 import java.io.Serializable;
 
 /**
  * 题目分类关系表(SubjectMapping)实体类
  *
- * @author makejava
- * @since 2024-01-17 12:37:23
+ * @author 随缘而愈
+ * @since 2023-10-03 22:17:07
  */
-
-
 public class SubjectMapping implements Serializable {
-    private static final long serialVersionUID = -78608867335977272L;
+    private static final long serialVersionUID = -72034591678118838L;
     /**
-    * 主键
-    */
+     * 主键
+     */
     private Long id;
     /**
-    * 题目id
-    */
+     * 题目id
+     */
     private Long subjectId;
     /**
-    * 分类id
-    */
+     * 分类id
+     */
     private Long categoryId;
     /**
-    * 标签id
-    */
+     * 标签id
+     */
     private Long labelId;
     /**
-    * 创建人
-    */
+     * 创建人
+     */
     private String createdBy;
     /**
-    * 创建时间
-    */
+     * 创建时间
+     */
     private Date createdTime;
     /**
-    * 修改人
-    */
+     * 修改人
+     */
     private String updateBy;
     /**
-    * 修改时间
-    */
+     * 修改时间
+     */
     private Date updateTime;
     
     private Integer isDeleted;
+
 
     public Long getId() {
         return id;
@@ -121,4 +118,6 @@ public class SubjectMapping implements Serializable {
     public void setIsDeleted(Integer isDeleted) {
         this.isDeleted = isDeleted;
     }
+
 }
+

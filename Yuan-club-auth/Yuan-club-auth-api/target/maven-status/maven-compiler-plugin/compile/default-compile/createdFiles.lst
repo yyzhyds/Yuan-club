@@ -1,1 +1,4 @@
 com\zhy\auth\api\UserFeignService.class
+com\zhy\auth\entity\Result.class
+com\zhy\auth\entity\AuthUserDTO.class
+com\zhy\auth\entity\ResultCodeEnum.class

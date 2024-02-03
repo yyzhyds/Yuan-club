@@ -1,19 +1,17 @@
 package com.zhy.auth.infra.basic.service.impl;
 
-import com.zhy.auth.infra.basic.entity.AuthRole;
 import com.zhy.auth.infra.basic.entity.AuthUserRole;
 import com.zhy.auth.infra.basic.mapper.AuthUserRoleDao;
 import com.zhy.auth.infra.basic.service.AuthUserRoleService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.List;
 
 /**
  * (AuthUserRole)表服务实现类
  *
  * @author makejava
- * @since 2024-01-22 09:39:33
+ * @since 2023-11-03 00:18:09
  */
 @Service("authUserRoleService")
 public class AuthUserRoleServiceImpl implements AuthUserRoleService {
@@ -23,24 +21,12 @@ public class AuthUserRoleServiceImpl implements AuthUserRoleService {
     /**
      * 通过ID查询单条数据
      *
-     * @param  id
+     * @param id 主键
      * @return 实例对象
      */
     @Override
     public AuthUserRole queryById(Long id) {
         return this.authUserRoleDao.queryById(id);
-    }
-
-    /**
-     * 查询多条数据
-     *
-     * @param offset 查询起始位置
-     * @param limit 查询条数
-     * @return 对象列表
-     */
-    @Override
-    public List<AuthUserRole> queryAllByLimit(int offset, int limit) {
-        return this.authUserRoleDao.queryAllByLimit(offset, limit);
     }
 
     /**
@@ -70,13 +56,11 @@ public class AuthUserRoleServiceImpl implements AuthUserRoleService {
     /**
      * 通过主键删除数据
      *
-     * @param  id
+     * @param id 主键
      * @return 是否成功
      */
     @Override
     public boolean deleteById(Long id) {
         return this.authUserRoleDao.deleteById(id) > 0;
     }
-
-
 }

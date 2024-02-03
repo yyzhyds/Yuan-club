@@ -12,7 +12,7 @@ spring:
           filters:
             - StripPrefix=1
         - id: auth
-          uri: lb://yuan-club-auth
+          uri: lb://yuan-club-auth-dev
           predicates:
             - Path=/auth/**
           filters:
@@ -28,11 +28,11 @@ redis:
   # Redis数据库索引（默认为0）
   database: 1
   # Redis服务器地址
-  host: 192.168.100.110
+  host: 117.72.44.234
   # Redis服务器连接端口
   port: 6379
   # Redis服务器连接密码（默认为空）
-  password: 123456
+  password: zhy371857855
   # 连接超时时间
   timeout: 2s
   lettuce:

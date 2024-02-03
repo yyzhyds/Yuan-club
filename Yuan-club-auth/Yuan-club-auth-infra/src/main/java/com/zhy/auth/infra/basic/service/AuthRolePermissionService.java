@@ -1,14 +1,14 @@
 package com.zhy.auth.infra.basic.service;
 
-import com.zhy.auth.infra.basic.entity.AuthRole;
 import com.zhy.auth.infra.basic.entity.AuthRolePermission;
+
 import java.util.List;
 
 /**
  * (AuthRolePermission)表服务接口
  *
  * @author makejava
- * @since 2024-01-22 11:00:30
+ * @since 2023-11-04 22:16:00
  */
 public interface AuthRolePermissionService {
 
@@ -21,21 +21,14 @@ public interface AuthRolePermissionService {
     AuthRolePermission queryById(Long id);
 
     /**
-     * 查询多条数据
-     *
-     * @param offset 查询起始位置
-     * @param limit 查询条数
-     * @return 对象列表
-     */
-    List<AuthRolePermission> queryAllByLimit(int offset, int limit);
-
-    /**
      * 新增数据
      *
      * @param authRolePermission 实例对象
      * @return 实例对象
      */
     AuthRolePermission insert(AuthRolePermission authRolePermission);
+
+    int batchInsert(List<AuthRolePermission> authRolePermissionList);
 
     /**
      * 修改数据
@@ -52,8 +45,6 @@ public interface AuthRolePermissionService {
      * @return 是否成功
      */
     boolean deleteById(Long id);
-
-    int batchInsert(List<AuthRolePermission> authRolePermissionList);
 
     List<AuthRolePermission> queryByCondition(AuthRolePermission authRolePermission);
 

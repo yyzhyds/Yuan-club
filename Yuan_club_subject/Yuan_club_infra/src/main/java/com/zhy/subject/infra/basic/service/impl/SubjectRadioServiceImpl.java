@@ -11,8 +11,8 @@ import java.util.List;
 /**
  * 单选题信息表(SubjectRadio)表服务实现类
  *
- * @author makejava
- * @since 2024-01-17 12:12:40
+ * @author 随缘而愈
+ * @since 2023-10-05 21:30:19
  */
 @Service("subjectRadioService")
 public class SubjectRadioServiceImpl implements SubjectRadioService {
@@ -31,18 +31,6 @@ public class SubjectRadioServiceImpl implements SubjectRadioService {
     }
 
     /**
-     * 查询多条数据
-     *
-     * @param offset 查询起始位置
-     * @param limit 查询条数
-     * @return 对象列表
-     */
-//    @Override
-//    public List<SubjectRadio> queryAllByLimit(int offset, int limit) {
-//        return this.subjectRadioDao.queryAllByLimit(offset, limit);
-//    }
-
-    /**
      * 新增数据
      *
      * @param subjectRadio 实例对象
@@ -54,15 +42,9 @@ public class SubjectRadioServiceImpl implements SubjectRadioService {
         return subjectRadio;
     }
 
-    /**
-     * 批量新增
-     *
-     * @param subjectRadioList 实例对象
-     * @return 实例对象
-     */
     @Override
-    public void bathInsert(List<SubjectRadio> subjectRadioList) {
-        subjectRadioDao.bathInsert(subjectRadioList);
+    public void batchInsert(List<SubjectRadio> subjectRadioList) {
+        this.subjectRadioDao.insertBatch(subjectRadioList);
     }
 
     /**

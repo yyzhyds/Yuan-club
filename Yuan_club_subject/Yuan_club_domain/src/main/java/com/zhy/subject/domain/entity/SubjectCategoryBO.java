@@ -3,41 +3,40 @@ package com.zhy.subject.domain.entity;
 import lombok.Data;
 
 import java.io.Serializable;
-import java.util.Date;
 import java.util.List;
 
 /**
  * 题目分类(SubjectCategory)实体类
  *
- * @author makejava
- * @since 2024-01-14 17:04:13
+ * @author 随缘而愈
+ * @since 2023-10-01 21:49:59
  */
 @Data
 public class SubjectCategoryBO implements Serializable {
 
     /**
-    * 主键
-    */
+     * 主键
+     */
     private Long id;
 
     /**
-    * 分类名称
-    */
+     * 分类名称
+     */
     private String categoryName;
 
     /**
-    * 分类类型
-    */
-    private Object categoryType;
+     * 分类类型
+     */
+    private Integer categoryType;
 
     /**
-    * 图标连接
-    */
+     * 图标连接
+     */
     private String imageUrl;
 
     /**
-    * 父级id
-    */
+     * 父级id
+     */
     private Long parentId;
 
     /**
@@ -46,7 +45,9 @@ public class SubjectCategoryBO implements Serializable {
     private Integer count;
 
     /**
-     * 标签信息
+     * 标签bo数量
      */
     private List<SubjectLabelBO> labelBOList;
+
 }
+

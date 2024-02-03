@@ -19,15 +19,15 @@
     <select id="queryById" resultMap="SubjectRadioMap">
         select
           id, subject_id, option_type, option_content, is_correct, created_by, created_time, update_by, update_time, is_deleted
-        from yuan_club.subject_radio
+        from subject_radio
         where id = #{id}
     </select>
 
     <!--查询指定行数据-->
     <select id="queryAllByLimit" resultMap="SubjectRadioMap">
         select
-        id, subject_id, option_type, option_content, is_correct, created_by, created_time, update_by, update_time, is_deleted
-        from yuan_club.subject_radio
+          id, subject_id, option_type, option_content, is_correct, created_by, created_time, update_by, update_time, is_deleted
+        from subject_radio
         <where>
             <if test="id != null">
                 and id = #{id}
@@ -60,14 +60,12 @@
                 and is_deleted = #{isDeleted}
             </if>
         </where>
-
     </select>
 
-    <!--通过实体作为筛选条件查询-->
-    <select id="queryAll" resultMap="SubjectRadioMap">
-        select
-          id, subject_id, option_type, option_content, is_correct, created_by, created_time, update_by, update_time, is_deleted
-        from yuan_club.subject_radio
+    <!--统计总行数-->
+    <select id="count" resultType="java.lang.Long">
+        select count(1)
+        from subject_radio
         <where>
             <if test="id != null">
                 and id = #{id}
@@ -104,21 +102,39 @@
 
     <!--新增所有列-->
     <insert id="insert" keyProperty="id" useGeneratedKeys="true">
-        insert into yuan_club.subject_radio(subject_id, option_type, option_content, is_correct, created_by, created_time, update_by, update_time, is_deleted)
+        insert into subject_radio(subject_id, option_type, option_content, is_correct, created_by, created_time, update_by, update_time, is_deleted)
         values (#{subjectId}, #{optionType}, #{optionContent}, #{isCorrect}, #{createdBy}, #{createdTime}, #{updateBy}, #{updateTime}, #{isDeleted})
     </insert>
 
+    <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into subject_radio(subject_id, option_type, option_content, is_correct, created_by, created_time, update_by, update_time, is_deleted)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+        (#{entity.subjectId}, #{entity.optionType}, #{entity.optionContent}, #{entity.isCorrect}, #{entity.createdBy}, #{entity.createdTime}, #{entity.updateBy}, #{entity.updateTime}, #{entity.isDeleted})
+        </foreach>
+    </insert>
 
-    <insert id="bathInsert" keyProperty="id" useGeneratedKeys="true">
-        INSERT INTO yuan_club.subject_radio (subject_id, option_type, option_content, is_correct, created_by, created_time, update_by, update_time, is_deleted)
-        VALUES
+    <insert id="insertOrUpdateBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into subject_radio(subject_id, option_type, option_content, is_correct, created_by, created_time, update_by, update_time, is_deleted)
+        values
         <foreach collection="entities" item="entity" separator=",">
             (#{entity.subjectId}, #{entity.optionType}, #{entity.optionContent}, #{entity.isCorrect}, #{entity.createdBy}, #{entity.createdTime}, #{entity.updateBy}, #{entity.updateTime}, #{entity.isDeleted})
         </foreach>
+        on duplicate key update
+        subject_id = values(subject_id),
+        option_type = values(option_type),
+        option_content = values(option_content),
+        is_correct = values(is_correct),
+        created_by = values(created_by),
+        created_time = values(created_time),
+        update_by = values(update_by),
+        update_time = values(update_time),
+        is_deleted = values(is_deleted)
     </insert>
+
     <!--通过主键修改数据-->
     <update id="update">
-        update yuan_club.subject_radio
+        update subject_radio
         <set>
             <if test="subjectId != null">
                 subject_id = #{subjectId},
@@ -153,7 +169,8 @@
 
     <!--通过主键删除-->
     <delete id="deleteById">
-        delete from yuan_club.subject_radio where id = #{id}
+        delete from subject_radio where id = #{id}
     </delete>
 
 </mapper>
+

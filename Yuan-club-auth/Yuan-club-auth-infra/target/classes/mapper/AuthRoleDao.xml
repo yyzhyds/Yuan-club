@@ -15,9 +15,15 @@
 
     <!--查询单个-->
     <select id="queryById" resultMap="AuthRoleMap">
-        select
-          id, role_name, role_key, created_by, created_time, update_by, update_time, is_deleted
-        from yuan_club.auth_role
+        select id,
+               role_name,
+               role_key,
+               created_by,
+               created_time,
+               update_by,
+               update_time,
+               is_deleted
+        from auth_role
         where id = #{id}
     </select>
 
@@ -25,7 +31,7 @@
     <select id="queryAllByLimit" resultMap="AuthRoleMap">
         select
         id, role_name, role_key, created_by, created_time, update_by, update_time, is_deleted
-        from yuan_club.auth_role
+        from auth_role
         <where>
             <if test="id != null">
                 and id = #{id}
@@ -54,11 +60,10 @@
         </where>
     </select>
 
-    <!--通过实体作为筛选条件查询-->
-    <select id="queryAll" resultMap="AuthRoleMap">
-        select
-          id, role_name, role_key, created_by, created_time, update_by, update_time, is_deleted
-        from yuan_club.auth_role
+    <!--统计总行数-->
+    <select id="count" resultType="java.lang.Long">
+        select count(1)
+        from auth_role
         <where>
             <if test="id != null">
                 and id = #{id}
@@ -89,7 +94,7 @@
 
     <select id="queryByRoleList" resultMap="AuthRoleMap">
         select *
-        from yuan_club.auth_role
+        from auth_role
         where id in
         <foreach open="(" close=")" collection="list" item="id" separator=",">
             #{id}
@@ -98,18 +103,39 @@
 
     <!--新增所有列-->
     <insert id="insert" keyProperty="id" useGeneratedKeys="true">
-        <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER">
-            SELECT LAST_INSERT_ID()
-        </selectKey>
-        insert into
-            yuan_club.auth_role(id,role_name, role_key, created_by, created_time, update_by, update_time, is_deleted)
+        insert into auth_role(role_name, role_key, created_by, created_time, update_by, update_time, is_deleted)
+        values (#{roleName}, #{roleKey}, #{createdBy}, #{createdTime}, #{updateBy}, #{updateTime}, #{isDeleted})
+    </insert>
+
+    <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into auth_role(role_name, role_key, created_by, created_time, update_by, update_time, is_deleted)
         values
-            (#{id},#{roleName}, #{roleKey}, #{createdBy}, #{createdTime}, #{updateBy}, #{updateTime}, #{isDeleted})
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.roleName}, #{entity.roleKey}, #{entity.createdBy}, #{entity.createdTime}, #{entity.updateBy},
+            #{entity.updateTime}, #{entity.isDeleted})
+        </foreach>
+    </insert>
+
+    <insert id="insertOrUpdateBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into auth_role(role_name, role_key, created_by, created_time, update_by, update_time, is_deleted)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.roleName}, #{entity.roleKey}, #{entity.createdBy}, #{entity.createdTime}, #{entity.updateBy},
+            #{entity.updateTime}, #{entity.isDeleted})
+        </foreach>
+        on duplicate key update
+        role_name = values(role_name),
+        role_key = values(role_key),
+        created_by = values(created_by),
+        created_time = values(created_time),
+        update_by = values(update_by),
+        update_time = values(update_time),
+        is_deleted = values(is_deleted)
     </insert>
 
     <!--通过主键修改数据-->
     <update id="update">
-        update yuan_club.auth_role
+        update auth_role
         <set>
             <if test="roleName != null and roleName != ''">
                 role_name = #{roleName},
@@ -138,7 +164,10 @@
 
     <!--通过主键删除-->
     <delete id="deleteById">
-        delete from yuan_club.auth_role where id = #{id}
+        delete
+        from auth_role
+        where id = #{id}
     </delete>
 
 </mapper>
+

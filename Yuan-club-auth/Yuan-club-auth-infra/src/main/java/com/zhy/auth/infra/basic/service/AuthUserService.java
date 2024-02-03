@@ -1,31 +1,24 @@
 package com.zhy.auth.infra.basic.service;
 
 import com.zhy.auth.infra.basic.entity.AuthUser;
+
 import java.util.List;
 
 /**
  * (AuthUser)表服务接口
  *
- * @author makejava
- * @since 2024-01-21 10:36:58
+ * @author 随缘而愈
+ * @since 2023-11-01 01:25:23
  */
 public interface AuthUserService {
 
     /**
      * 通过ID查询单条数据
      *
-     * @param  id
+     * @param id 主键
      * @return 实例对象
      */
     AuthUser queryById(Long id);
-
-    /**
-     * 查询多条数据
-     *
-     * @param offset 查询起始位置
-     * @param limit 查询条数
-     * @return 对象列表
-     */
 
     /**
      * 新增数据
@@ -46,10 +39,16 @@ public interface AuthUserService {
     /**
      * 通过主键删除数据
      *
-     * @param  id
+     * @param id 主键
      * @return 是否成功
      */
     boolean deleteById(Long id);
 
+    /**
+     * 根据条件查询数量
+     */
     List<AuthUser> queryByCondition(AuthUser authUser);
+
+    Integer updateByUserName(AuthUser authUser);
+
 }

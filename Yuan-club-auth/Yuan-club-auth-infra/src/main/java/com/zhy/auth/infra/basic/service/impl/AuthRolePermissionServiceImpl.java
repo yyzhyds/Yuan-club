@@ -1,6 +1,5 @@
 package com.zhy.auth.infra.basic.service.impl;
 
-import com.zhy.auth.infra.basic.entity.AuthRole;
 import com.zhy.auth.infra.basic.entity.AuthRolePermission;
 import com.zhy.auth.infra.basic.mapper.AuthRolePermissionDao;
 import com.zhy.auth.infra.basic.service.AuthRolePermissionService;
@@ -13,7 +12,7 @@ import java.util.List;
  * (AuthRolePermission)表服务实现类
  *
  * @author makejava
- * @since 2024-01-22 11:00:30
+ * @since 2023-11-04 22:16:00
  */
 @Service("authRolePermissionService")
 public class AuthRolePermissionServiceImpl implements AuthRolePermissionService {
@@ -32,18 +31,6 @@ public class AuthRolePermissionServiceImpl implements AuthRolePermissionService 
     }
 
     /**
-     * 查询多条数据
-     *
-     * @param offset 查询起始位置
-     * @param limit 查询条数
-     * @return 对象列表
-     */
-    @Override
-    public List<AuthRolePermission> queryAllByLimit(int offset, int limit) {
-        return this.authRolePermissionDao.queryAllByLimit(offset, limit);
-    }
-
-    /**
      * 新增数据
      *
      * @param authRolePermission 实例对象
@@ -53,6 +40,11 @@ public class AuthRolePermissionServiceImpl implements AuthRolePermissionService 
     public AuthRolePermission insert(AuthRolePermission authRolePermission) {
         this.authRolePermissionDao.insert(authRolePermission);
         return authRolePermission;
+    }
+
+    @Override
+    public int batchInsert(List<AuthRolePermission> authRolePermissionList) {
+        return this.authRolePermissionDao.insertBatch(authRolePermissionList);
     }
 
     /**
@@ -79,14 +71,8 @@ public class AuthRolePermissionServiceImpl implements AuthRolePermissionService 
     }
 
     @Override
-    public int batchInsert(List<AuthRolePermission> authRolePermissionList) {
-        return this.authRolePermissionDao.insertBatch(authRolePermissionList);
-    }
-
-    @Override
     public List<AuthRolePermission> queryByCondition(AuthRolePermission authRolePermission) {
-        return this.authRolePermissionDao.queryAll(authRolePermission);
+        return this.authRolePermissionDao.queryAllByLimit(authRolePermission);
     }
-
 
 }

@@ -1,20 +1,16 @@
 package com.zhy.auth.infra.basic.entity;
 
-import lombok.Data;
-
-import java.util.Date;
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * (AuthRole)实体类
  *
- * @author makejava
- * @since 2024-01-21 16:09:38
+ * @author 随缘而愈
+ * @since 2023-11-02 23:55:19
  */
-
-@Data
 public class AuthRole implements Serializable {
-    private static final long serialVersionUID = -16734399042760042L;
+    private static final long serialVersionUID = 422256240999600735L;
     
     private Long id;
     
@@ -22,20 +18,20 @@ public class AuthRole implements Serializable {
     
     private String roleKey;
     /**
-    * 创建人
-    */
+     * 创建人
+     */
     private String createdBy;
     /**
-    * 创建时间
-    */
+     * 创建时间
+     */
     private Date createdTime;
     /**
-    * 更新人
-    */
+     * 更新人
+     */
     private String updateBy;
     /**
-    * 更新时间
-    */
+     * 更新时间
+     */
     private Date updateTime;
     
     private Integer isDeleted;
@@ -105,17 +101,5 @@ public class AuthRole implements Serializable {
         this.isDeleted = isDeleted;
     }
 
-    @Override
-    public String toString() {
-        return "AuthRole{" +
-                "id=" + id +
-                ", roleName='" + roleName + '\'' +
-                ", roleKey='" + roleKey + '\'' +
-                ", createdBy='" + createdBy + '\'' +
-                ", createdTime=" + createdTime +
-                ", updateBy='" + updateBy + '\'' +
-                ", updateTime=" + updateTime +
-                ", isDeleted=" + isDeleted +
-                '}';
-    }
 }
+

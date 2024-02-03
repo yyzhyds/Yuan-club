@@ -12,7 +12,7 @@ import java.util.List;
  * (AuthRole)表服务实现类
  *
  * @author makejava
- * @since 2024-01-21 16:09:38
+ * @since 2023-11-02 23:55:19
  */
 @Service("authRoleService")
 public class AuthRoleServiceImpl implements AuthRoleService {
@@ -31,25 +31,13 @@ public class AuthRoleServiceImpl implements AuthRoleService {
     }
 
     /**
-     * 查询多条数据
-     *
-     * @param offset 查询起始位置
-     * @param limit 查询条数
-     * @return 对象列表
-     */
-    @Override
-    public AuthRole queryAllByLimit(AuthRole authRole) {
-        return this.authRoleDao.queryAllByLimit(authRole);
-    }
-
-    /**
      * 新增数据
      *
      * @param authRole 实例对象
      * @return 实例对象
      */
     @Override
-    public Integer insert(AuthRole authRole) {
+    public int insert(AuthRole authRole) {
         return this.authRoleDao.insert(authRole);
     }
 
@@ -60,8 +48,8 @@ public class AuthRoleServiceImpl implements AuthRoleService {
      * @return 实例对象
      */
     @Override
-    public Integer update(AuthRole authRole) {
-      return  this.authRoleDao.update(authRole);
+    public int update(AuthRole authRole) {
+        return this.authRoleDao.update(authRole);
     }
 
     /**

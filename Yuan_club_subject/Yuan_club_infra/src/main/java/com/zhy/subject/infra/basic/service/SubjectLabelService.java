@@ -1,13 +1,14 @@
 package com.zhy.subject.infra.basic.service;
 
 import com.zhy.subject.infra.basic.entity.SubjectLabel;
+
 import java.util.List;
 
 /**
  * 题目标签表(SubjectLabel)表服务接口
  *
- * @author makejava
- * @since 2024-01-16 10:04:28
+ * @author 随缘而愈
+ * @since 2023-10-03 21:50:30
  */
 public interface SubjectLabelService {
 
@@ -20,21 +21,12 @@ public interface SubjectLabelService {
     SubjectLabel queryById(Long id);
 
     /**
-     * 查询多条数据
-     *
-     * @param offset 查询起始位置
-     * @param limit 查询条数
-     * @return 对象列表
-     */
-    List<SubjectLabel> queryAllByLimit(int offset, int limit);
-
-    /**
      * 新增数据
      *
      * @param subjectLabel 实例对象
      * @return 实例对象
      */
-    Integer insert(SubjectLabel subjectLabel);
+    int insert(SubjectLabel subjectLabel);
 
     /**
      * 修改数据
@@ -52,7 +44,8 @@ public interface SubjectLabelService {
      */
     boolean deleteById(Long id);
 
-    List<SubjectLabel> queryLabel(SubjectLabel subjectLabel);
-
     List<SubjectLabel> batchQueryById(List<Long> labelIdList);
+
+    List<SubjectLabel> queryByCondition(SubjectLabel subjectLabel);
+
 }

@@ -2,13 +2,14 @@ package com.zhy.auth.infra.basic.mapper;
 
 import com.zhy.auth.infra.basic.entity.AuthRole;
 import org.apache.ibatis.annotations.Param;
+
 import java.util.List;
 
 /**
  * (AuthRole)表数据库访问层
  *
  * @author makejava
- * @since 2024-01-21 16:09:38
+ * @since 2023-11-02 23:55:19
  */
 public interface AuthRoleDao {
 
@@ -23,20 +24,18 @@ public interface AuthRoleDao {
     /**
      * 查询指定行数据
      *
-     * @param offset 查询起始位置
-     * @param limit 查询条数
+     * @param authRole 查询条件
      * @return 对象列表
      */
     AuthRole queryAllByLimit(AuthRole authRole);
 
-
     /**
-     * 通过实体作为筛选条件查询
+     * 统计总行数
      *
-     * @param authRole 实例对象
-     * @return 对象列表
+     * @param authRole 查询条件
+     * @return 总行数
      */
-    List<AuthRole> queryAll(AuthRole authRole);
+    long count(AuthRole authRole);
 
     /**
      * 新增数据
@@ -45,6 +44,23 @@ public interface AuthRoleDao {
      * @return 影响行数
      */
     int insert(AuthRole authRole);
+
+    /**
+     * 批量新增数据（MyBatis原生foreach方法）
+     *
+     * @param entities List<AuthRole> 实例对象列表
+     * @return 影响行数
+     */
+    int insertBatch(@Param("entities") List<AuthRole> entities);
+
+    /**
+     * 批量新增或按主键更新数据（MyBatis原生foreach方法）
+     *
+     * @param entities List<AuthRole> 实例对象列表
+     * @return 影响行数
+     * @throws org.springframework.jdbc.BadSqlGrammarException 入参是空List的时候会抛SQL语句错误的异常，请自行校验入参
+     */
+    int insertOrUpdateBatch(@Param("entities") List<AuthRole> entities);
 
     /**
      * 修改数据
@@ -63,4 +79,6 @@ public interface AuthRoleDao {
     int deleteById(Long id);
 
     List<AuthRole> queryByRoleList(@Param("list") List<Long> roleIdList);
+
 }
+

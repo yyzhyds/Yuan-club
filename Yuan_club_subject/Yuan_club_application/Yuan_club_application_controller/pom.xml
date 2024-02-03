@@ -21,11 +21,6 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
 
-    <!--    <properties>-->
-<!--        <java.version>1.8</java.version>-->
-<!--        <mapstruct.version>1.4.2.Final</mapstruct.version>-->
-<!--    </properties>-->
-
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>

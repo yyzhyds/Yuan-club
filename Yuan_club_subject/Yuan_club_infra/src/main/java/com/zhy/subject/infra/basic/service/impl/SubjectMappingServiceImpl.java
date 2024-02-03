@@ -11,35 +11,23 @@ import java.util.List;
 /**
  * 题目分类关系表(SubjectMapping)表服务实现类
  *
- * @author makejava
- * @since 2024-01-17 12:37:23
+ * @author 随缘而愈
+ * @since 2023-10-03 22:17:07
  */
 @Service("subjectMappingService")
 public class SubjectMappingServiceImpl implements SubjectMappingService {
+
     @Resource
     private SubjectMappingDao subjectMappingDao;
 
     /**
      * 通过ID查询单条数据
      *
-     * @param id 主键
      * @return 实例对象
      */
     @Override
-    public SubjectMapping queryById(Long id) {
+    public SubjectMapping queryById(int id) {
         return this.subjectMappingDao.queryById(id);
-    }
-
-    /**
-     * 查询多条数据
-     *
-     * @param offset 查询起始位置
-     * @param limit 查询条数
-     * @return 对象列表
-     */
-    @Override
-    public List<SubjectMapping> queryAllByLimit(int offset, int limit) {
-        return this.subjectMappingDao.queryAllByLimit(offset, limit);
     }
 
     /**
@@ -55,42 +43,34 @@ public class SubjectMappingServiceImpl implements SubjectMappingService {
     }
 
     /**
-     * 批量新增
-     *
-     * @param mappingList 实例对象
-     * @return 实例对象
-     */
-    @Override
-    public void bathInsert(List<SubjectMapping> mappingList) {
-        subjectMappingDao.bathInsert(mappingList);
-    }
-
-    /**
      * 修改数据
      *
      * @param subjectMapping 实例对象
      * @return 实例对象
      */
     @Override
-    public SubjectMapping update(SubjectMapping subjectMapping) {
-        this.subjectMappingDao.update(subjectMapping);
-        return this.queryById(subjectMapping.getId());
+    public int update(SubjectMapping subjectMapping) {
+        return this.subjectMappingDao.update(subjectMapping);
     }
 
     /**
      * 通过主键删除数据
      *
-     * @param id 主键
      * @return 是否成功
      */
     @Override
-    public boolean deleteById(Long id) {
+    public boolean deleteById(int id) {
         return this.subjectMappingDao.deleteById(id) > 0;
     }
 
     @Override
     public List<SubjectMapping> queryLabelId(SubjectMapping subjectMapping) {
         return this.subjectMappingDao.queryDistinctLabelId(subjectMapping);
+    }
+
+    @Override
+    public void batchInsert(List<SubjectMapping> mappingList) {
+        this.subjectMappingDao.insertBatch(mappingList);
     }
 
 }

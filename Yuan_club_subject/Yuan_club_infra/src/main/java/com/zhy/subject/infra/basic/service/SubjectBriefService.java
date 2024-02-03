@@ -2,14 +2,11 @@ package com.zhy.subject.infra.basic.service;
 
 import com.zhy.subject.infra.basic.entity.SubjectBrief;
 
-import java.util.LinkedList;
-import java.util.List;
-
 /**
  * 简答题(SubjectBrief)表服务接口
  *
- * @author makejava
- * @since 2024-01-17 10:47:34
+ * @author 随缘而愈
+ * @since 2023-10-05 21:29:22
  */
 public interface SubjectBriefService {
 
@@ -20,15 +17,6 @@ public interface SubjectBriefService {
      * @return 实例对象
      */
     SubjectBrief queryById(Long id);
-
-    /**
-     * 查询多条数据
-     *
-     * @param offset 查询起始位置
-     * @param limit 查询条数
-     * @return 对象列表
-     */
-    //List<SubjectBrief> queryAllByLimit(int offset, int limit);
 
     /**
      * 新增数据
@@ -54,7 +42,9 @@ public interface SubjectBriefService {
      */
     boolean deleteById(Long id);
 
-    void bathInsert(List<SubjectBrief> subjectBriefList);
-
+    /**
+     * 条件查询
+     */
     SubjectBrief queryByCondition(SubjectBrief subjectBrief);
+
 }

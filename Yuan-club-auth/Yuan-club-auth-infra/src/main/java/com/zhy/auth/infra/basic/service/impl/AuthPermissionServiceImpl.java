@@ -12,17 +12,12 @@ import java.util.List;
  * (AuthPermission)表服务实现类
  *
  * @author makejava
- * @since 2024-01-22 10:20:50
+ * @since 2023-11-03 00:45:50
  */
 @Service("authPermissionService")
 public class AuthPermissionServiceImpl implements AuthPermissionService {
     @Resource
     private AuthPermissionDao authPermissionDao;
-
-    @Override
-    public List<AuthPermission> queryByRoleList(List<Long> roleIdList) {
-        return this.authPermissionDao.queryByRoleList(roleIdList);
-    }
 
     /**
      * 通过ID查询单条数据
@@ -36,25 +31,13 @@ public class AuthPermissionServiceImpl implements AuthPermissionService {
     }
 
     /**
-     * 查询多条数据
-     *
-     * @param offset 查询起始位置
-     * @param limit 查询条数
-     * @return 对象列表
-     */
-    @Override
-    public List<AuthPermission> queryAllByLimit(int offset, int limit) {
-        return this.authPermissionDao.queryAllByLimit(offset, limit);
-    }
-
-    /**
      * 新增数据
      *
      * @param authPermission 实例对象
      * @return 实例对象
      */
     @Override
-    public Integer insert(AuthPermission authPermission) {
+    public int insert(AuthPermission authPermission) {
         return this.authPermissionDao.insert(authPermission);
     }
 
@@ -65,7 +48,7 @@ public class AuthPermissionServiceImpl implements AuthPermissionService {
      * @return 实例对象
      */
     @Override
-    public Integer update(AuthPermission authPermission) {
+    public int update(AuthPermission authPermission) {
         return this.authPermissionDao.update(authPermission);
     }
 
@@ -78,5 +61,10 @@ public class AuthPermissionServiceImpl implements AuthPermissionService {
     @Override
     public boolean deleteById(Long id) {
         return this.authPermissionDao.deleteById(id) > 0;
+    }
+
+    @Override
+    public List<AuthPermission> queryByRoleList(List<Long> roleIdList) {
+        return this.authPermissionDao.queryByRoleList(roleIdList);
     }
 }

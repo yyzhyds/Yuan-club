@@ -1,18 +1,15 @@
 package com.zhy.subject.infra.basic.mapper;
 
 import com.zhy.subject.infra.basic.entity.SubjectCategory;
-import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-
 import java.util.List;
 
 /**
  * 题目分类(SubjectCategory)表数据库访问层
  *
- * @author makejava
- * @since 2024-01-14 17:04:13
+ * @author 随缘而愈
+ * @since 2023-10-01 21:49:58
  */
-@Mapper
 public interface SubjectCategoryDao {
 
     /**
@@ -29,7 +26,7 @@ public interface SubjectCategoryDao {
      * @param subjectCategory 查询条件
      * @return 总行数
      */
-    // long count(SubjectCategory subjectCategory);
+    long count(SubjectCategory subjectCategory);
 
     /**
      * 新增数据
@@ -45,7 +42,7 @@ public interface SubjectCategoryDao {
      * @param entities List<SubjectCategory> 实例对象列表
      * @return 影响行数
      */
-   // int insertBatch(@Param("entities") List<SubjectCategory> entities);
+    int insertBatch(@Param("entities") List<SubjectCategory> entities);
 
     /**
      * 批量新增或按主键更新数据（MyBatis原生foreach方法）
@@ -54,7 +51,7 @@ public interface SubjectCategoryDao {
      * @return 影响行数
      * @throws org.springframework.jdbc.BadSqlGrammarException 入参是空List的时候会抛SQL语句错误的异常，请自行校验入参
      */
-    //int insertOrUpdateBatch(@Param("entities") List<SubjectCategory> entities);
+    int insertOrUpdateBatch(@Param("entities") List<SubjectCategory> entities);
 
     /**
      * 修改数据
@@ -77,3 +74,4 @@ public interface SubjectCategoryDao {
     Integer querySubjectCount(Long id);
 
 }
+

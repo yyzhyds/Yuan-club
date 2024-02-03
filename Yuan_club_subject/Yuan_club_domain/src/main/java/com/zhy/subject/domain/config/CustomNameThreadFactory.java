@@ -5,15 +5,13 @@ import org.apache.commons.lang3.StringUtils;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.atomic.AtomicInteger;
 
-
 /**
- * @author Lenovo
- * @version 1.0
- * @description TODO
- * @date 25/1/2024 上午11:11
+ * 自定义名称的线程工厂
+ *
+ * @author: 随缘而愈
+ * @date: 2023/11/26
  */
-
-public class CustomNameThreadFactory implements ThreadFactory{
+public class CustomNameThreadFactory implements ThreadFactory {
 
     private static final AtomicInteger poolNumber = new AtomicInteger(1);
     private final ThreadGroup group;
@@ -45,6 +43,5 @@ public class CustomNameThreadFactory implements ThreadFactory{
         }
         return t;
     }
-
 
 }

@@ -11,6 +11,7 @@
 
     <artifactId>Yuan_club_application</artifactId>
     <packaging>pom</packaging>
+
     <modules>
         <module>Yuan_club_application_job</module>
         <module>Yuan_club_application_mq</module>

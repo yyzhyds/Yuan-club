@@ -6,13 +6,12 @@ import com.zhy.subject.infra.basic.service.SubjectBriefService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.List;
 
 /**
  * 简答题(SubjectBrief)表服务实现类
  *
- * @author makejava
- * @since 2024-01-17 10:47:34
+ * @author 随缘而愈
+ * @since 2023-10-05 21:29:22
  */
 @Service("subjectBriefService")
 public class SubjectBriefServiceImpl implements SubjectBriefService {
@@ -29,18 +28,6 @@ public class SubjectBriefServiceImpl implements SubjectBriefService {
     public SubjectBrief queryById(Long id) {
         return this.subjectBriefDao.queryById(id);
     }
-
-    /**
-     * 查询多条数据
-     *
-     * @param offset 查询起始位置
-     * @param limit 查询条数
-     * @return 对象列表
-     */
-//    @Override
-//    public List<SubjectBrief> queryAllByLimit(int offset, int limit) {
-//        return this.subjectBriefDao.queryAllByLimit(offset, limit);
-//    }
 
     /**
      * 新增数据
@@ -78,12 +65,7 @@ public class SubjectBriefServiceImpl implements SubjectBriefService {
     }
 
     @Override
-    public void bathInsert(List<SubjectBrief> subjectBriefList) {
-        this.subjectBriefDao.bathInsert(subjectBriefList);
-    }
-
-    @Override
     public SubjectBrief queryByCondition(SubjectBrief subjectBrief) {
-        return subjectBriefDao.queryAllByLimit(subjectBrief);
+        return this.subjectBriefDao.queryAllByLimit(subjectBrief);
     }
 }

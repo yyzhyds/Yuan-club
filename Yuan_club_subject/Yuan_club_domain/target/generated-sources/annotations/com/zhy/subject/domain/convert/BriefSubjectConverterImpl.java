@@ -6,7 +6,7 @@ import javax.annotation.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2024-01-30T12:28:35+0800",
+    date = "2024-02-01T09:58:52+0800",
     comments = "version: 1.4.2.Final, compiler: javac, environment: Java 1.8.0_211 (Oracle Corporation)"
 )
 public class BriefSubjectConverterImpl implements BriefSubjectConverter {
@@ -21,11 +21,6 @@ public class BriefSubjectConverterImpl implements BriefSubjectConverter {
 
         subjectBrief.setId( subjectInfoBO.getId() );
         subjectBrief.setSubjectAnswer( subjectInfoBO.getSubjectAnswer() );
-        subjectBrief.setCreatedBy( subjectInfoBO.getCreatedBy() );
-        subjectBrief.setCreatedTime( subjectInfoBO.getCreatedTime() );
-        subjectBrief.setUpdateBy( subjectInfoBO.getUpdateBy() );
-        subjectBrief.setUpdateTime( subjectInfoBO.getUpdateTime() );
-        subjectBrief.setIsDeleted( subjectInfoBO.getIsDeleted() );
 
         return subjectBrief;
     }

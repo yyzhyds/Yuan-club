@@ -1,24 +1,43 @@
 package com.zhy.subject.domain.service;
 
+
+
 import com.zhy.subject.common.entity.PageResult;
 import com.zhy.subject.domain.entity.SubjectInfoBO;
+import com.zhy.subject.infra.basic.entity.SubjectInfoEs;
+
+import java.util.List;
 
 /**
- * @author Lenovo
- * @version 1.0
- * @description TODO
- * @date 15/1/2024 上午9:53
+ * 题目领域服务
+ * 
+ * @author: 随缘而愈
+ * @date: 2023/10/3
  */
-
-
 public interface SubjectInfoDomainService {
 
     /**
      * 新增题目
-    */
-    void   add (SubjectInfoBO subjectInfoBO);
+     */
+    void add(SubjectInfoBO subjectInfoBO);
 
+    /**
+     * 分页查询
+     */
     PageResult<SubjectInfoBO> getSubjectPage(SubjectInfoBO subjectInfoBO);
 
-    SubjectInfoBO getSubjectInfo(SubjectInfoBO subjectInfoBO);
+    /**
+     * 查询题目信息
+     */
+    SubjectInfoBO querySubjectInfo(SubjectInfoBO subjectInfoBO);
+
+    /**
+     * 全文检索
+     */
+    PageResult<SubjectInfoEs> getSubjectPageBySearch(SubjectInfoBO subjectInfoBO);
+
+    List<SubjectInfoBO> getContributeList();
+
+
 }
+

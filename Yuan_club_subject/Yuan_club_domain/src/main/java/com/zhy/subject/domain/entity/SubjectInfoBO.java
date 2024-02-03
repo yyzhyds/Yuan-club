@@ -4,63 +4,45 @@ import com.zhy.subject.common.entity.PageInfo;
 import lombok.Data;
 
 import java.io.Serializable;
-import java.util.Date;
 import java.util.List;
 
 /**
- * 题目信息表(SubjectInfo)实体类DTO
+ * 题目dto
  *
- * @author makejava
- * @since 2024-01-17 10:55:49
+ * @author: 随缘而愈
+ * @date: 2023/10/5
  */
 @Data
 public class SubjectInfoBO extends PageInfo implements Serializable {
+
     /**
-    * 主键
-    */
+     * 主键
+     */
     private Long id;
     /**
-    * 题目名称
-    */
+     * 题目名称
+     */
     private String subjectName;
     /**
-    * 题目难度
-    */
+     * 题目难度
+     */
     private Integer subjectDifficult;
     /**
-    * 出题人名
-    */
+     * 出题人名
+     */
     private String settleName;
     /**
-    * 题目类型 1单选 2多选 3判断 4简答
-    */
+     * 题目类型 1单选 2多选 3判断 4简答
+     */
     private Integer subjectType;
     /**
-    * 题目分数
-    */
+     * 题目分数
+     */
     private Integer subjectScore;
     /**
-    * 题目解析
-    */
+     * 题目解析
+     */
     private String subjectParse;
-    /**
-    * 创建人
-    */
-    private String createdBy;
-    /**
-    * 创建时间
-    */
-    private Date createdTime;
-    /**
-    * 修改人
-    */
-    private String updateBy;
-    /**
-    * 修改时间
-    */
-    private Date updateTime;
-    
-    private Integer isDeleted;
 
     /**
      * 题目答案
@@ -80,13 +62,55 @@ public class SubjectInfoBO extends PageInfo implements Serializable {
     /**
      * 标签name
      */
-    private List<String> labelNames;
+    private List<String> labelName;
 
     /**
-     * 答案实体
+     * 答案选项
      */
     private List<SubjectAnswerBO> optionList;
 
-    private Long CategoryId;
-    private Long LabelId;
+    private Long categoryId;
+
+    private Long labelId;
+
+    private String keyWord;
+
+
+    /**
+     * 创建人昵称
+     */
+    private String createUser;
+
+    /**
+     * 创建人头像
+     */
+    private String createUserAvatar;
+
+    /**
+     * 题目数量
+     */
+    private Integer subjectCount;
+
+
+    /**
+     * 是否被当前用户点赞
+     */
+    private Boolean liked;
+
+    /**
+     * 当前题目点赞的数量
+     */
+    private Integer likedCount;
+
+    /**
+     * 下一题
+     */
+    private Long nextSubjectId;
+
+    /**
+     * 上一题
+     */
+    private Long lastSubjectId;
+
 }
+

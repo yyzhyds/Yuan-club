@@ -1,13 +1,14 @@
 package com.zhy.subject.infra.basic.service;
 
 import com.zhy.subject.infra.basic.entity.SubjectRadio;
+
 import java.util.List;
 
 /**
  * 单选题信息表(SubjectRadio)表服务接口
  *
- * @author makejava
- * @since 2024-01-17 12:12:40
+ * @author 随缘而愈
+ * @since 2023-10-05 21:30:19
  */
 public interface SubjectRadioService {
 
@@ -20,15 +21,6 @@ public interface SubjectRadioService {
     SubjectRadio queryById(Long id);
 
     /**
-     * 查询多条数据
-     *
-     * @param offset 查询起始位置
-     * @param limit 查询条数
-     * @return 对象列表
-     */
-    //List<SubjectRadio> queryAllByLimit(int offset, int limit);
-
-    /**
      * 新增数据
      *
      * @param subjectRadio 实例对象
@@ -38,11 +30,8 @@ public interface SubjectRadioService {
 
     /**
      * 批量插入
-     *
-     * @param subjectRadioList 实例对象
-     * @return 实例对象
      */
-    void bathInsert(List<SubjectRadio> subjectRadioList);
+    void batchInsert(List<SubjectRadio> subjectRadioList);
 
     /**
      * 修改数据

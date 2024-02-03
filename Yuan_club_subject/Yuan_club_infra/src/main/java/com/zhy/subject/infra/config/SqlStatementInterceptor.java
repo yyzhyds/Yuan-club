@@ -1,12 +1,5 @@
 package com.zhy.subject.infra.config;
 
-/**
- * @author Lenovo
- * @version 1.0
- * @description TODO
- * @date 18/1/2024 下午12:14
- */
-
 import org.apache.ibatis.cache.CacheKey;
 import org.apache.ibatis.executor.Executor;
 import org.apache.ibatis.mapping.BoundSql;
@@ -57,4 +50,3 @@ public class SqlStatementInterceptor implements Interceptor {
 
     }
 }
-

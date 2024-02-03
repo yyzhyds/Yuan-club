@@ -1,16 +1,16 @@
 package com.zhy.auth.infra.basic.entity;
 
-import java.util.Date;
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * (AuthPermission)实体类
  *
- * @author makejava
- * @since 2024-01-22 10:20:50
+ * @author 随缘而愈
+ * @since 2023-11-03 00:45:50
  */
 public class AuthPermission implements Serializable {
-    private static final long serialVersionUID = 743965784077159418L;
+    private static final long serialVersionUID = -56518358607843924L;
     
     private Long id;
     
@@ -30,20 +30,20 @@ public class AuthPermission implements Serializable {
     
     private String permissionKey;
     /**
-    * 创建人
-    */
+     * 创建人
+     */
     private String createdBy;
     /**
-    * 创建时间
-    */
+     * 创建时间
+     */
     private Date createdTime;
     /**
-    * 更新人
-    */
+     * 更新人
+     */
     private String updateBy;
     /**
-    * 更新时间
-    */
+     * 更新时间
+     */
     private Date updateTime;
     
     private Integer isDeleted;
@@ -162,3 +162,4 @@ public class AuthPermission implements Serializable {
     }
 
 }
+

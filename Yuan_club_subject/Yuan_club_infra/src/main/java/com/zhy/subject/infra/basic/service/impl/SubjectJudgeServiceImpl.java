@@ -6,14 +6,13 @@ import com.zhy.subject.infra.basic.service.SubjectJudgeService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.LinkedList;
 import java.util.List;
 
 /**
  * 判断题(SubjectJudge)表服务实现类
  *
- * @author makejava
- * @since 2024-01-17 10:48:46
+ * @author 随缘而愈
+ * @since 2023-10-05 21:29:47
  */
 @Service("subjectJudgeService")
 public class SubjectJudgeServiceImpl implements SubjectJudgeService {
@@ -30,18 +29,6 @@ public class SubjectJudgeServiceImpl implements SubjectJudgeService {
     public SubjectJudge queryById(Long id) {
         return this.subjectJudgeDao.queryById(id);
     }
-
-    /**
-     * 查询多条数据
-     *
-     * @param offset 查询起始位置
-     * @param limit 查询条数
-     * @return 对象列表
-     */
-//    @Override
-//    public List<SubjectJudge> queryAllByLimit(int offset, int limit) {
-//        return this.subjectJudgeDao.queryAllByLimit(offset, limit);
-//    }
 
     /**
      * 新增数据
@@ -79,12 +66,7 @@ public class SubjectJudgeServiceImpl implements SubjectJudgeService {
     }
 
     @Override
-    public void bathInsert(List<SubjectJudge> subjectJudgeList) {
-        this.subjectJudgeDao.bathInsert(subjectJudgeList);
-    }
-
-    @Override
     public List<SubjectJudge> queryByCondition(SubjectJudge subjectJudge) {
-        return subjectJudgeDao.queryAllByLimit(subjectJudge);
+        return this.subjectJudgeDao.queryAllByLimit(subjectJudge);
     }
 }

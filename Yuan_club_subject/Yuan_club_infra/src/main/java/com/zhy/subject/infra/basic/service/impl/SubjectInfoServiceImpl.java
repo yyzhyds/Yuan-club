@@ -11,8 +11,8 @@ import java.util.List;
 /**
  * 题目信息表(SubjectInfo)表服务实现类
  *
- * @author makejava
- * @since 2024-01-17 10:45:38
+ * @author 随缘而愈
+ * @since 2023-10-05 21:28:58
  */
 @Service("subjectInfoService")
 public class SubjectInfoServiceImpl implements SubjectInfoService {
@@ -28,18 +28,6 @@ public class SubjectInfoServiceImpl implements SubjectInfoService {
     @Override
     public SubjectInfo queryById(Long id) {
         return this.subjectInfoDao.queryById(id);
-    }
-
-    /**
-     * 查询多条数据
-     *
-     * @param offset 查询起始位置
-     * @param limit 查询条数
-     * @return 对象列表
-     */
-    @Override
-    public List<SubjectInfo> queryAllByLimit(int offset, int limit) {
-        return this.subjectInfoDao.queryAllByLimit(offset, limit);
     }
 
     /**
@@ -79,11 +67,22 @@ public class SubjectInfoServiceImpl implements SubjectInfoService {
 
     @Override
     public int countByCondition(SubjectInfo subjectInfo, Long categoryId, Long labelId) {
-        return this.subjectInfoDao.countByCondition(subjectInfo,categoryId,labelId);
+        return this.subjectInfoDao.countByCondition(subjectInfo, categoryId, labelId);
     }
 
     @Override
-    public List<SubjectInfo> queryPage(SubjectInfo subjectInfo, Long categoryId, Long labelId,int start, Integer pageSize) {
-        return this.subjectInfoDao.queryPage(subjectInfo,categoryId,labelId,start,pageSize);
+    public List<SubjectInfo> queryPage(SubjectInfo subjectInfo, Long categoryId, Long labelId, int start, Integer pageSize) {
+        return this.subjectInfoDao.queryPage(subjectInfo, categoryId, labelId, start, pageSize);
     }
+
+    @Override
+    public List<SubjectInfo> getContributeCount() {
+        return this.subjectInfoDao.getContributeCount();
+    }
+
+    @Override
+    public Long querySubjectIdCursor(Long subjectId, Long categoryId, Long labelId, int cursor) {
+        return this.subjectInfoDao.querySubjectIdCursor(subjectId, categoryId, labelId, cursor);
+    }
+
 }

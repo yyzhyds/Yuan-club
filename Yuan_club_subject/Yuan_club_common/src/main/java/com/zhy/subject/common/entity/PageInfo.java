@@ -1,12 +1,14 @@
 package com.zhy.subject.common.entity;
 
+import lombok.Data;
+
 /**
- * @author Lenovo
+ * @author 随缘而愈
  * @version 1.0
  * @description TODO
  * @date 17/1/2024 下午4:57
  */
-
+@Data
 public class PageInfo {
     private Integer pageNo = 1;
     private Integer pageSize = 20;

@@ -6,10 +6,10 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * 题目信息表(SubjectInfo)实体类DTO
+ * 题目dto
  *
- * @author makejava
- * @since 2024-01-17 10:55:49
+ * @author: 随缘而愈
+ * @date: 2023/10/5
  */
 @Data
 public class SubjectOptionBO implements Serializable {
@@ -20,9 +20,9 @@ public class SubjectOptionBO implements Serializable {
     private String subjectAnswer;
 
     /**
-     * 答案实体
+     * 答案选项
      */
     private List<SubjectAnswerBO> optionList;
 
-
 }
+
