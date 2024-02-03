@@ -43,17 +43,17 @@ Yuan-Club是一款专门为程序员(Yuan)打造的沟通交流社区，采用�
 
 
 
-## ☀️添砖加瓦
+#### ☀️添砖加瓦
 欢迎大家提issue一起完善，以及提供各种宝贵建议，
 
 
-# 🐾贡献代码的步骤
+#### 🐾贡献代码的步骤
 1. 在Gitee上fork项目到自己的repo
 2. 把fork过去的项目也就是你的项目clone到你的本地
 3. 修改代码
 4. commit后push到自己的库
 5. 登录Gitee在你仓库首页可以看到一个 pull request 按钮，点击它，填写一些说明信息，然后提交即可。 等待维护者合并
-# 公众号
+### 公众号
 微信搜索 【随缘而愈】 关注我的公众号
 <p>
 <a href="/images/weipng.png"><img src="/images/weipng.png" alt="weipng.png" border="0" /></a>
