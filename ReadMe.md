@@ -12,10 +12,13 @@
 
 ## ✨项目简介
 
+Yuan-Club是一款专门为程序员(Yuan)打造的沟通交流社区，采用主流的微服务框架+主流C端技术栈来做为技术架构。
+
+旨在统一程序员信息差，进行平台统一化，程序员可以在平台， 完善自身知识，刷自身薄弱点面试题，配合练习，模拟面试，简历分析模块来提升程序员面试能力。
 
 ## 🔥项目模块结构介绍
 ### Yuan-club-gateway
-*
+* 网关模块
 ### Yuan-club-subject
 * Yuan-club-subject-application
 * Yuan-club-subject-common
@@ -31,11 +34,11 @@
 * Yuan-club-auth-starter
 * Yuan-club-auth-api
 ### Yuan-club-wx
-* 
+* 微信登录模块
 ### Yuan-club-oss
-*
+* 文件模块
 ### Yuan-club-es
-*
+* es模块
 
 
 
