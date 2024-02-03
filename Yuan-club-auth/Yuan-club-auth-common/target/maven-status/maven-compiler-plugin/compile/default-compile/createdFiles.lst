@@ -1,0 +1,6 @@
+com\zhy\auth\common\entity\PageResult.class
+com\zhy\auth\common\enums\AuthUserStatusEnum.class
+com\zhy\auth\common\entity\ResultCodeEnum.class
+com\zhy\auth\common\enums\IsDeletedFlagEnum.class
+com\zhy\auth\common\entity\PageInfo.class
+com\zhy\auth\common\entity\Result.class
