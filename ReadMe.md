@@ -5,7 +5,7 @@
 <img src='https://gitee.com/zhyzyy2121/yuan_club/badge/star.svg?theme=dark' alt='star'>
 </a>
 <a href="#公众号"><img src="https://img.shields.io/badge/公众号-随缘而愈-orange.svg?style=plasticr"></a>
-<a href="https://gitee.com/zhyzyy2121/yuan-frame">
+<a href="https://gitee.com/zhyzyy2121/yuan-club">
 <img src="https://img.shields.io/badge/version-v1.0-red.svg">
 </a>
 </p>
